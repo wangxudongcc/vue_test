@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <button>111</button>
+    <button>222</button>
+    <button>333</button>
+    <p id="p">第一张图片</p>
+    <input type="button" value='后退' id='btn'> -->
+    <div id="box"></div>
+    <!-- <script>
+        // let ary =['1','2'];
+        // const btn = document.querySelectorAll('button');
+        
+        // let hash =window.location.hash;
+        
+        // btn.onclick=function(){
+
+        // }
+
+        // btn.forEach((ele,i)=>{
+        //     ele.onclick=function (){
+        //         p.innerHTML =ary[i];
+        //         window.location.hash = 'page='+i;
+        //     }
+        // })
+        // window.onhashchange = function(){
+        //     let index = window.location.hahs.match(/page=(\d)/)[1];
+        //     p.innerHTML = ary[index];
+        // }
+        document.onclick = function(){
+            window.location.href='http://www.baidu.com';  //一上来就跳转到别的页面;
+        }
+    </script> -->
+    <!-- <script>
+            /*
+                浏览器对象模型;
+                    基本不兼容(window.innerHeight浏览器高度,window.pageYoffset 滚动条的距离)
+
+            */
+           document.onclick=function(){
+               console.log(window.pageYOffset); //=>滚动条的距离 只能读不能写
+            //    window.onscrollTo(0,0);
+               console.log(window.location);
+            /*   
+                origin='http:"www.baidu.com"'
+                pathname =>如果没有前后端分离就是路径,前后端分离就是接口;
+                protocol:协议;
+                port :端口;
+                reload:刷新页面
+                hash:锚信息,哈希值 #之后的,修改它不会刷新页面;
+                ajax最大的缺陷就是失去了前进后退的能力,所谓的不安全;
+                search 查询信息  ?daa#之间的信息 修改它是会刷新页面的;
+                
+                不管是改变hash,还是search都会使历史记录用户操作,就可以使用返回前进键了
+                当hash值变化的时候会触发一个onhashchange的事件
+            */
+           let i;
+           hash.onclick =function(){
+               window.location.hash = 'a=y'; //写操作;
+           }
+           }
+        </script> -->
+        <script>    
+            if(/chorme/i.test(window.navigator.userAgent)&&/windows/i.test(window.navigator.userAgent)){
+box.style.background='red';
+            }else if(/iphone/i.test(window.navigator.userAgent)){
+                box.style.background ='yellow';
+            }
+             else if(/android/i.test(window.navigator.userAgent)){
+                box.style.background ='pink';
+            }
+            // window.navigator.userAgent 用户的内核信息(注意的是容易被模拟)
+            // 后端跳转路由会刷新页面,会从后端的静态文件中查找文件传输到前台,后端跳转路由就会刷新页面;这样会影响用户体验;所以使用hash来充当路由的动作来请求资源,这样一来,第一能够成功请求资源,二来不刷新页面
+            // 
+            /*history 浏览器历史记录能够使用前进后退,还可以伪造一个url地址,并且不刷新页面
+            forward 前进 -1后退  pushState:记录url状态的;
+            replaceState:替换记录;
+            [/a,/b,/c,/e]
+            注意:伪造的url如果没有服务器端配合,那么是不能刷新页面,不然一刷新页面
+            */ 
+            
+            window.history.pushState({num:0},'','http://localhost/6_history.html/1')
+            
+
+
+        </script>
+
+        <script>
+
+            register.onclick = function(){
+                let v1 = username.value;
+                let p1 = password.value;
+
+                fetch('api/user/register',{
+                    method:'post',
+                    body:''+new URLSearchParams({
+                        username:v1,
+                        password:p1
+                    }),
+                    headers:{
+                        
+                    }
+                }).then(d=>d.json()).then(d=>{
+                    if(d.code ===0){
+                        
+                        window.location.href ='/';
+                    }
+                    else if(d.code ===1){
+alert('用户名已被占用');
+                    }
+                    console.log(d);
+                });
+            let a =10;
+            setTimeout(()=>{
+                a=20
+            },timeout);
+
+            console.log(a);
+            }
+        </script>
+        <script>    
+        function toDou(n){
+            return 
+        }
+            //如果使用服务器时间的时候,发现设置的时间为1970,直接*1000,因为服务器时间是按照秒来计算的;
+            submit.onclick = function(){
+                let {value} = text;
+                div1.innerHTML +=``;
+
+            }
+        </script>
+        <script>
+            // 只要是AJAx请求,优先把数据打印出来看看;
+            //=>刷新就请求第一页的数据;
+            fetch ('/api/weibo?act=get&page=1').then(d=>d.json()).then(d=>{
+                // console.log(d)
+                div1.innerHTML ='';
+                d.forEach( _ => {    
+                });
+            })
+            console.log(d);
+            d.content =value;
+            render(d);
+            text.value ='';
+            function render(d){
+                let o = new Date();
+            }
+        </script>
+    </body>
+</html>
