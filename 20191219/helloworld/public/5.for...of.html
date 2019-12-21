@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    for of循环 统一的遍历api;
+    for of =>symbol.iterator 接口
+    
+    要遍历 key =>ary.keys();
+    要遍历 value =>value.values();
+    都要遍历=>;ary.entries();
+
+    字符串,数组,Map,Set,queryselectoeAll都有symbol.iterator,但对象没有;
+    
+    对象没有遍历接口,但是可以
+    <script>        
+      let obj ={name:'小明',sex:18};
+      obj[Symbol.iterator] = function(){
+          let ary =Object.keys(obj);
+          let len = ary.length;//=>拿到循环的次数
+          let index =0; //从0开始循环
+// 把对象的key和val通过
+          return{
+              next(){
+                  return{
+                      value:undefined,
+                      done:false
+                 }
+              }
+          }
+      }
+    </script>
+</body>
+</html>
