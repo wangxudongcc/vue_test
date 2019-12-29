@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        <p v-html="rawHtml"></p>
+        <div v-bind:class="color">localStorage</div>
+        <p>{{number+1}}</p>
+        <p>{{1!==4?'YES':"NO"}}</p>
+        <p>{{message.split('').reverse().join('')}}</p>
+    </div>
+    <script>
+
+        let data = {
+            a: 1
+        };
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                rawHtml: '<span style="color: red">this is should been storage</span>',
+                color: 'box',
+                number:1,
+                ok:true,
+                message:'vue'
+            } 
+        })
+    </script>
+    <style>
+        .box{
+            color: blue;
+            font-size:22px;
+        }
+    </style>
+</body>
+
+</html>
