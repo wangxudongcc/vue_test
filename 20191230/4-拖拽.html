@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 100px;
+            height: 100px;
+            background: seagreen;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        <div id="box" @mousedown='onoff && down($event)' @mousemove='move' @mouseup='up'></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                disX: 0,
+                disY: 0,
+                onoff: true
+            },
+            methods: {
+                down(ev) {
+                    const {
+                        target,
+                        pageX,
+                        pageY
+                    } = ev
+                    this.disX = pageX - target.offsetLeft;
+                    this.disY = pageY - target.offsetTop;
+                    let _that = this;
+                    document.onmousemove = function (ev) {
+                        target.style.left = pageX - _that.disX + 'px';
+                        target.style.top = pageY - _that.disY + 'px';
+                    }
+                },
+                move(ev) {
+                    const { target } = ev
+                    target.style.left = ev.pageX - this.disX + 'px';
+                    target.style.top = ev.pageY - this.disY + 'px';
+                },
+                up() {
+                    this.onoff = false
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
