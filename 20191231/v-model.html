@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+<input type="text" v-model="val">
+<input type="text" :value='val'>
+<ul>
+    <li v-for='val in ary'>{{val}}</li>
+</ul>
+    </div>
+    <script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            val:'',
+            ary:[]
+        }
+    })
+        </script>
+        <!-- 绑v-model 的目的就是让对方操作界面的时候,顺便帮我操作数据 数据驱动视图,视图影响数据 
+            只要遇到了表单元素,就要思考以下是否使用v-model;
+
+        -->
+</body>
+</html>

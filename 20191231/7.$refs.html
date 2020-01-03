@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        我是父组件的;
+        <my-app></my-app>
+    </div>
+    <script>
+        /**
+         * 定义组件:vue.component('组件的名字',{
+         * })
+         * 组件的名字直接引vue.js,那么尽量不要使用驼峰命名;
+         * 因为命名之后,使用子组件的时候会报错,如果非要使用把子组件改成烤串命名;
+         */
+        Vue.component('myApp',{
+            template:`<div>我是子组件{{num}}</div>`
+        })
+    </script>
+</body>
+</html>

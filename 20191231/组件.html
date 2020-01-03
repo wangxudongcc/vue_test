@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="vue.js"></script>
+    <div id="app">
+      我是父组件的;
+      <www></www>
+      <btn></btn>
+    </div>
+    <script>
+
+        // 第一种注册方式组件
+      const btn = {
+        template: `<button @click='click'>按钮{{num}}</button>`,
+        data() {
+          return {
+            num: 0
+          };
+        },
+        methods: {
+          click() {
+            this.num++;
+          }
+        }
+      };
+      Vue.component('btn',btn);
+    
+      const www = {
+        template: `<div>
+                <div>1</div>
+                <span>Vue真的是太简单了</span>
+                <btn这是按钮3</btn>
+            </div>`,
+        components: {
+          btn
+        }
+      };
+      new Vue({
+        el: "#app",
+        data: {
+            num:0
+        },
+        components: {
+          www,btn
+        }
+      });
+    </script>
+    <!-- 
+        父子组件的传递:
+            1.子组件上写一个v-bind:自定义一个属性="父级中的数据"
+            2.子组件(对象)上定义一个props的属性,属性的值可以为数组/对象
+                如果是数组['第一步中自定义行间属性的名字']
+                    props:['fnum']
+            3.直接用{{}}+props中的名字就可以使用了;{{fnum}}
+            简单总结:(1)父级通过子组件在 行间属性上传值;
+                    (2)子组件通过props去接收;
+
+            单向数据流
+            子组件不允许直接改变父级的数据的; 
+     -->
+  </body>
+</html>

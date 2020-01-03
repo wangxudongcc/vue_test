@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        <input type="text" v-model="val">
+        {{val | rever}}
+    </div>
+    <script>
+        /* computed 数据的第二次处理;
+        管道符 : |
+        filters:{
+            fn(val管道符之前的值){
+                
+            }
+        }
+        */
+    const vm = new Vue({
+        el:'#app',
+        data:{
+          val:'珠峰培训'
+        },
+        methods:{
+            fn(){
+                return this.val.split('').reverse().join('')
+            }
+        },
+        computed:{
+            /*
+                全局注册了之后,只要是当前vue 实例下的所有组件都可以使用到这个全局的过滤器
+                局部注册只有当前这个组件,才能使用;
+                如果全局和局部都注册了相同名字的过滤器,那么优先级最高的是局部;
+            */ 
+            reverse(){
+               return this.val.split('').reverse().join('')
+           },
+           filters:{
+                rever(val){
+                    return val.split('')
+                }
+                // 所以这个方法还是会互相影响的,对吧
+                // 必须得在filters里面写?
+                // 加了管道符加了括号会怎样?
+                // 大的没有filter,他们两个其实是一样的,对吧?
+                // 现在有一个问题就是全局和局部都注册了,会出现什么情况呢?
+           }
+        }
+    })
+    </script>
+</body>
+</html>
