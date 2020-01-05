@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+      可是如果总是包的话,你看会不会没有用的标签多了;
+    父传子, ppa,官方推荐是这种;
+        props:['data'];
+        父组件:provide
+        {{children}}
+    <ppa :data=''>
+
+    </ppa>
+</div>
+    <!-- <script>
+        const ppa = {
+            template:'#ppa',
+            created:{
+            
+            }
+        }
+        new Vue({
+            el:'#app',
+            components:{
+                ppa
+            }
+        })
+    </script> -->
+<script src="vue.js"></script>
+<script>
+    /*
+        插槽: 在开发中写什么结构,就是什么结构
+        复用性?
+   匿名插槽/具名插槽/作用域插槽
+ 
+   匿名插槽:子组件中定义slot;
+   父组件中给调用的
+   具名插槽:所以会替换;
+   在slot标签中设置了一个name 属性,值为随意;
+   再插入标签内容的时候,在替换标签中定义一个slot的属性和要替换的name对应;
+   作用域插槽;
+        作用域:在自己的slot 中
+            1.定义一个name= '标识符'
+            2.通过 v-bind去传入使用的数据
+        在父级template中
+            1.v-slot:name标识符 = "自定义的名字"
+            2.使用自定义名字的.xx
+            <template #cc= 'cdata'></template>
+            
+            */
+   
+const ppa = {
+    template:'#tk',
+    props:['of'],
+    methods:{
+        off(){
+            this.$emit('coff')
+        }
+    }
+}
+    new Vue({
+        el:'#app',
+        data:{
+            onoff:false,
+            methods:{
+                
+            },
+            ary:[
+                {
+                age:1
+                }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

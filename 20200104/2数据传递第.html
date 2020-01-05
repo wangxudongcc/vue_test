@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ppa></ppa>
+    </div>
+    <template id="ppa">
+        <div>{{ary2}}</div>
+    </template>
+
+    <script src="vue.js"></script>
+    <script></script>
+    <script>
+        const ppa = {
+            template: '#ppa',
+            created() {
+              return 1;  
+            },
+            inject: ['ary2']
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                ppa
+            },
+            data: {
+                num: 0
+            },
+            provide: {
+                ary2: [1, 444, 3]
+            }
+        })
+    </script>
+</body>
+
+</html>

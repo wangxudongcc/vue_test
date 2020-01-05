@@ -26,9 +26,9 @@ new Vue({
       });
       this.val = "";
     },
-    rm(id){
-        console.log(id);
+    rm(id){ 
         this.ary = this.ary.filter(e=>e.id !== id);
+        console.log(id);
         console.log(this,this.ary);
     },
     changeAll(ev){
@@ -36,11 +36,12 @@ new Vue({
             e.checked = ev.target.checked;
             return e;
         });
+        // 我们在做todo的时候,我发现写方法的时候,有的需要return,有的不需要return;
     },
     replace({id,txt},num){
         this.onoff_FN(id,true);
         this.$refs.edit[num].value = txt;
-        
+        console.log(this.onoff_FN(id,true));
         Vue.nextTick(()=>{
             this.$refs.edit[num].focus();
         })
