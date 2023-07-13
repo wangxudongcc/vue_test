@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="mainNavC">
+    <table>
+        <thead>
+            <!-- 标头 -->
+            <tr>
+                <td class="bgc_tt short" height="22">单证收集信息</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                    <td align="left" nowrap="nowrap">
+                        
+                        <img src='${ctx}/pages/certify/widgets/images/treeT.gif' height="20" width="20"
+                            align="middle">
+                        <!-- 为了匹配上传页面ID，所以隐藏cLossItemId、sdocId、cFileCode、cDispatchFlag -->
+                      
+                                <input type="radio" name="detail" value="${defLossCollectFileId }"
+                                    onclick="setLossItemId(this,0);setRadio(this,'',${collectFileType },'',${collectFileId },${defLossCollectFileId });setUnUpload();displayCertify();displayFile();setThreeInOne('');displayRecord('');displayCifButton('');" />
+                                <label style="color:red">${collectFileName}</label>
+                              
+                                <input type="radio" name="detail" value="${collectFileId }"
+                                    onclick="setLossItemId(this,0);setRadio(this,'',${collectFileType },'',${collectFileId });setUnUpload();displayCertify();displayFile();setThreeInOne('');displayRecord('');displayCifButton('');" />
+                                <label style="color:red">${collectFileName}</label>
+                              
+                               
+                          
+                                <input type="radio" name="detail" value=""
+                                    onclick="setLossItemId(this,null);setRadio(this,'19999','19','');displayCertify();displayFile();setThreeInOne('1');setUnUpload('1');displayRecord('');displayCifButton('');" />
+                                <label style="color:red">${collectFileName}</label>
+                          
+                                <%--PNCCAR 关于完善通赔反洗钱管控的申请 ADD BY ZHAOYUQI 2021-11-19 BEGIN--%>
+                              
+                                    <input type="radio" name="detail" value=""
+                                        onclick="setLossItemId(this,null);setRadio(this,'17999','17','');displayCertify();displayFile();setUnUpload('1');setThreeInOne('');displayRecord('');displayCifButton('17999');" />
+                                    <label style="color:red">${collectFileName}</label>
+
+                                <%--PNCCAR 关于完善通赔反洗钱管控的申请 ADD BY ZHAOYUQI 2021-11-19 END--%>
+                                  
+                                        <label style="color:red">${collectFileName}</label>
+                                  
+                    </td>
+                </tr>
+                        <tr>
+                            <td align="left" nowrap="nowrap">
+                                <input type="hidden" name="certify">
+                                <img src='${ctx}/pages/certify/widgets/images/treeBlank.gif' height="20"
+                                    width="20" align="middle">
+                               
+                              
+                             
+                                <%-- PNCCAR 提前理算_索赔清单调整 ZHANGDONGXU UPDATE 2010420 BEGIN --%>
+                                    <%-- <input type="radio" id="detail${oIndexNo}${sIndexNo}" name="detail"
+                                        onclick="setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();">
+                                        --%>
+                                        <%-- <label for="detail${oIndexNo}${sIndexNo}">${docName}</label> --%>
+                                            <!-- 如果是其他单证,显示具体名称,需要根据id去查照片 -->
+                                            <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                    name="detail"
+                                                    onclick="setPageSdocId('${sdocId}');setRadioForOtherDoc(this,'${fileTypeCode}','${sdocId}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');displayRecord('');displayCifButton('');">
+                                                <label for="detail${oIndexNo}${sIndexNo}">${remark}</label>
+                                                
+                                           
+                                      
+                                                <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                    name="detail"
+                                                    onclick="setPageSdocId('${sdocId}');setRadioForOtherDoc(this,'${fileTypeCode}','${sdocId}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');displayRecord('');displayCifButton('');">
+                                                <label for="detail${oIndexNo}${sIndexNo}">${docName}</label>
+                                                <c:if
+                                                    test="${picCount != null && picCount != '' && picCount != '0'}">
+                                                    【${picCount }】</c:if>
+                                            </s:elseif>
+                                            <s:elseif test="%{#file[#s.index].docCode.trim() == '19999'}">
+                                                <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                    name="detail"
+                                                    onclick="setPageSdocId('${sdocId}');setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                                <label for="detail${oIndexNo}${sIndexNo}">${docName}</label>
+                                                <c:if test="${numberOfPhotos != null && numberOfPhotos > 0}">
+                                                    【${numberOfPhotos }】
+                                                </c:if>
+                                            </s:elseif>
+                                            <s:else>
+                                                <s:if test="%{#file[#s.index].docCode.trim() == '18999'}">
+                                                    <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                        name="detail"
+                                                        onclick="setPageSdocId('${sdocId}');setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('');displayRecord('');displayCifButton('');">
+                                                </s:if>
+                                                <s:else>
+                                                    <!--PNCCAR 关于全险种报案注销、立案注销、0结案增加录音链接功能的需求申请  MODIFY BY ZHAOYUQI 2020-4-10  BEGIN-->
+                                                    <s:if
+                                                        test="%{#file[#s.index].docCode.trim() == '9010' || #file[#s.index].docCode.trim() == '9002' || #file[#s.index].docCode.trim() == '9005'}">
+                                                        <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                            name="detail"
+                                                            onclick="setPageSdocId('${sdocId}');setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('${fileTypeCode}');displayCifButton('');">
+                                                    </s:if>
+                                                    <s:elseif
+                                                        test="%{#file[#s.index].docCode.trim() == '0103'}">
+                                                        <input type="radio" class="hidde0103"
+                                                            id="detail${oIndexNo}${sIndexNo}" name="detail"
+                                                            onclick="sethidd0103('1');setPageSdocId('${sdocId}');setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                                    </s:elseif>
+                                                    <s:else>
+                                                        <input type="radio" id="detail${oIndexNo}${sIndexNo}"
+                                                            name="detail"
+                                                            onclick="setPageSdocId('${sdocId}');setRadio(this,'${fileTypeCode}','${sDispatchFlag}','${sLossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                                    </s:else>
+                                                    <!--PNCCAR 关于全险种报案注销、立案注销、0结案增加录音链接功能的需求申请  MODIFY BY ZHAOYUQI 2020-4-10  END-->
+                                                </s:else>
+                                                <label for="detail${oIndexNo}${sIndexNo}">${docName}</label>
+                                                <c:if
+                                                    test="${picCount != null && picCount != '' && picCount != '0'}">
+                                                    【${picCount }】
+                                                </c:if>
+                                            </s:else>
+                                            <%-- PNCCAR 提前理算_索赔清单调整 ZHANGDONGXU UPDATE 2010420 END --%>
+                                                <input type="hidden" name="cFileCode" value="${fileTypeCode}">
+                                                <input type="hidden" name="cDispatchFlag"
+                                                    value="${sDispatchFlag}">
+                                                <input type="hidden" name="cLossItemId" value="${sLossItemId}">
+                                                <input type="hidden" name="sdocId" value="${sdocId}">
+                            </td>
+                        </tr>
+                <tr>
+                    <td align="left" nowrap="nowrap">
+                        <c:if test="${realIndexNo==index}">
+                            <img src='${ctx}/pages/certify/widgets/images/treeL.gif' height="20" width="20"
+                                align="middle">
+                        </c:if>
+                        <c:if test="${realIndexNo!=index}">
+                            <img src='${ctx}/pages/certify/widgets/images/treeT.gif' height="20" width="20"
+                                align="middle">
+                        </c:if>
+                        <input type="radio" name="detail" id="detail" value="${map.id }"
+                            onclick="setLossItemId(this,1);setRadio(this,'','','','','',${map.id });setUnUpload();displayCertify();displayFile();setThreeInOne('');displayRecord('');displayCifButton('');" />
+                        <c:set var="realIndexNo" value="${realIndexNo+1}" />
+                        <label style="color:red">${map.name }</label>
+                        <c:if test="${map.number != null && map.number > 0}">
+                            【${map.number }】
+                        </c:if>
+                    </td>
+                </tr>
+                    <tr>
+                        <td>
+                            <img src='${ctx}/pages/certify/widgets/images/treeBlank.gif' height="20" width="20"
+                                align="middle">
+                            <c:if test="${indexImage==indexmap}">
+                                <img src='${ctx}/pages/certify/widgets/images/treeL.gif' height="20" width="20"
+                                    align="middle">
+                            </c:if>
+                            <c:if test="${indexImage!=indexmap}">
+                                <img src='${ctx}/pages/certify/widgets/images/treeT.gif' height="20" width="20"
+                                    align="middle">
+                            </c:if>
+                            ${imageType.collectFileTypeName}
+                            <c:if test="${imageType.numberOfPhotos != null && imageType.numberOfPhotos > 0}">
+                                【${imageType.numberOfPhotos }】
+                            </c:if>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>
+                                <c:if test="${child.picCount != null}">
+                                    <c:set var="picCount" value="${fn:trim(child.picCount)}" />
+                                </c:if>
+                                <c:if test="${child.picCount == null}">
+                                    <c:set var="picCount" value="" />
+                                </c:if>
+                                <input type="hidden" name="certify" id="certify">
+                                <img src='${ctx}/pages/certify/widgets/images/treeBlank.gif' height="20"
+                                    width="20" align="middle">
+                                <img src='${ctx}/pages/certify/widgets/images/treeBlank.gif' height="20"
+                                    width="20" align="middle">
+                                <c:if test="${childSize==childIndex}">
+                                    <img src='${ctx}/pages/certify/widgets/images/treeL.gif' height="20"
+                                        width="20" align="middle">
+                                </c:if>
+                                <c:if test="${childSize!=childIndex}">
+                                    <img src='${ctx}/pages/certify/widgets/images/treeT.gif' height="20"
+                                        width="20" align="middle">
+                                </c:if>
+                                <!-- <input type="radio" name="detail" onclick="setRadio(this,'${child.docCode}','${child.docItemType}','${child.lossItemId}');displayCertify();displayFile();">
+                      
+                      ${child.docName} -->
+                                <s:if test="${fn:trim(child.docCode) == '9999'}">
+                                    <input type="radio" id="detail${childIndex}${realIndexNo}" name="detail"
+                                        onclick="setPageSdocId('${child.id}');setRadioForOtherDoc(this,'${child.docCode}','${child.id}','${child.docItemType}','${child.lossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                    <label for="detail${childIndex}${realIndexNo}">${child.remark}</label>
+                                    <c:if test="${picCount != null && picCount != '' && picCount != '0'}">
+                                        【${picCount }】
+                                    </c:if>
+                                </s:if>
+                                <s:elseif test="${fn:trim(child.docCode) == '12010'}">
+                                    <input type="radio" id="detail${childIndex}${realIndexNo}" name="detail"
+                                        onclick="setPageSdocId('${child.id}');setRadioForOtherDoc(this,'${child.docCode}','${child.id}','${child.docItemType}','${child.lossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                    <label for="detail${childIndex}${realIndexNo}">${child.docName}</label>
+                                    <c:if test="${picCount != null && picCount != '' && picCount != '0'}">
+                                        【${picCount }】</c:if>
+                                </s:elseif>
+                                <s:else>
+                                    <input type="radio" id="detail${childIndex}${realIndexNo}" name="detail"
+                                        onclick="setPageSdocId('${child.id}');setRadio(this,'${child.docCode}','${child.docItemType}','${child.lossItemId}');displayCertify();displayFile();setThreeInOne('');setUnUpload('1');displayRecord('');displayCifButton('');">
+                                    <label for="detail${childIndex}${realIndexNo}">${child.docName}</label>
+                                    <c:if test="${picCount != null && picCount != '' && picCount != '0'}">
+                                        【${picCount }】
+                                    </c:if>
+                                </s:else>
+                            </td>
+                        </tr>
+            <tr>
+                <td align="left" nowrap="nowrap">
+                    <img src='${ctx}/pages/certify/widgets/images/treeT.gif' height="20" width="20"
+                        align="middle">
+                    <a href="#" onclick="showEleDoc();"><u>电子单证</u></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template id="burger-template">
+        <button type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
+            <svg width="24" height="24" aria-hidden="true">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+            </svg>
+dsada
+        </button>
+
+    </template>
+    <script>
+        const template = document.querySelector('#id-of-template');
+        const content =template.content.cloneNode(true);
+
+        container.append(content);
+        if('content' in document.createElement('template')){
+            console.log(template,content)
+        }
+    </script>
+</body>
+</html>
