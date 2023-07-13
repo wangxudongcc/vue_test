@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: peru;
+            border-radius: 4px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="vue.js"></script>
+    <!-- <div id="app">
+        {{msg}}
+        <div v-text="str"></div>
+        <div v-show='false'>需要跟着一个布尔值</div>
+        <button @click="click" v-if="a">{{title}}</button>
+        <div class="box" v-if="a"></div>
+        <div class="box1" v-else></div>
+    </div> -->
+    <div id="app">
+        <!-- <div v-text="str"></div> -->
+        <!-- <div v-html="str"></div> -->
+        <!-- <div v-show='b' class="box"></div> -->
+        <div v-if='b==false'>此时 b===false</div>
+        <div v-else-if='b===1'>此时 b===1 </div>
+        <button @click='click()'>{{title}}</button>
+        <hr>
+    </div>
+
+    <!-- <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好,世界!',
+                str: '哈哈',
+                a: 'true',
+                title:'点击收起'
+            },
+            // 专门放事件函数
+            methods:{
+                click(){
+                   this.a = !this.a;
+                   this.title = ${this.a?'点击收起':'点击展开'};
+                }
+            }
+        })
+        setTimeout(() => {
+            vm.a = false;
+        }, 3000)
+    </script> -->
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            name:'wxd',
+            str:'<p>呵呵哒</p>',
+            b:true,
+            title:'点击收起'
+        },
+        methods:{
+            click(){
+                let _this = this.b;
+                this.b=!this.b;
+            }
+        }
+    });
+    setTimeout(()=>{
+        vm.b = 1;
+    },3000)
+</script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 跨域(源)
+    同源策略:一种安全方面的约定,他是浏览器核心最基本的安全功能
+    缺少了同源策略,则浏览器的正常功能肯恩恶搞会受到影响;
+    web是构建在同源策略基础之上的,浏览器只是针对同源策略的一种实现;
+    源:
+        协议:
+            http/https(比http更安全,因为在传输的时候需要进行安全证书的认证)
+            ftp
+            file
+        域名:(IP的另一个名字)
+            www.baidu.com  
+        端口:
+            好比服务员,门牌号,专门是做某件事情的...
+            8888,5500,80...
+    同源就是同域名,同协议,同端口;
+    跨源:不通过域名,不同协议,不同端口,只要有一个不同
+
+    https://www.baidu.com:80  我
+
+    http://www.baidu.com:80  协议不一样=跨域
+
+    https://www.baidu.com:81 端口不一样=跨域
+
+    https://www.taobao.com:80 域名不一样=跨域
+
+    https://news.baidu.com:80  跨域
+
+    二级域名也是跨域
+
+    你要用别人的东西,你借别人的用,要不就变成你自己的,或者创造一个和别人一样的东西;
+-->
+    <!-- 跨域的解决方案 
+            1.CORS
+             需要高版本浏览器的XMLHttpRequest+后端设置白名单;
+
+            优点:前端什么都不用做,只需要后台添加白名单即可;
+            缺点:低版本不兼容
+        2.服务器代理 
+            服务器能够进行跨域请求第三方资源,服务器跨域的代码又和我端同源,就等同于我端跨域第三方资源
+            缺点:别人变了的你也得变;
+
+        3. JSONP   
+        JSON+PADDING 数据内填充;
+        有些标签天生就支持跨域
+            a href =''
+            img =''
+            link href='1.css'
+            script src=''
+            script标签会尽量解析外链资源,把资源变成JS代码;
+        全局定义函数的名字;
+        后端的数据知道你定义的函数叫什么名字;
+        后端把数据放到函数调用中;
+        通过script标签发送
+    -->
+    <!-- ajax和jsonp有什么区别?
+        有函数调用JSONP,没有函数调用AJAX;ajax请求的数据不带函数名
+    JSONP只能是get请求,因为走的是url
+        能用Ajax的地方不一定能用JSONP,能用jsonp的数据,但是jsonp数据不能访问到ajax数据;
+        ajax=>xhr.responseText (fn('{name:''}'))
+    -->
+    <script>
+        let xhr = new XMLHttpRequest;
+        xhr.open('get','http://localhost:8080/kuayu?name=hh');
+        xhr.send();
+        xhr.onload = function(){
+            console.log(xhr.responseText);
+        }
+    </script>
+
+    
+</body>
+</html>

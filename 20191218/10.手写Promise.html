@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function MyPromise(executor) {
+            let that = this;
+            that.value = undefined;
+            that.reason = undefined;
+            that.status = 'pending';
+
+            that.fulfilledCallback = [];
+            that.rejectedCallback = [];
+
+            function fulfilled(value) {
+                if (that.status === 'pending') {
+                    that.status = 'fulfilled';
+                    that.value = value;
+                    that.fulfilledCallback.forEach(fn => {
+                        fn();
+                    })
+                }
+            }
+
+            function rejected(reason) {
+                if (that.status === 'pending') {
+                    that.status = 'rejected';
+                    that.reason = reason;
+                    that.rejectedCallback.forEach(fn => {
+                        fn();
+                    })
+                }
+            }
+            try {
+                executor(fulfilled, rejecter);
+            } catch (error) {
+                rejected(error);
+            }
+        }
+        MyPromise.prototype.then = function (res, rej) {
+            let that = this;
+            let promise = new MyPromise(function (resolve, reject) {
+                if (that.status === 'fulfilled') {
+                    try {
+                        let x = res(that.value);
+                        resolve(x)
+                    } catch (error) {
+                        resolve(that.value);
+                    }
+                }
+                if (that.status === 'rejected') {
+                    try {
+                        let x = rej(that.reason);
+                        reject(x)
+                    } catch {
+                        reject(that.reason);
+                    }
+                }
+                if (that.status === 'pending') {
+                    that.fulfilledCallback.push(function () {
+                        try {
+                            let x = res(that.value);
+                            resolve(x);
+                        } catch (error) {
+                            if (typeof res === 'function') {
+                                reject(that.reason)
+                            } else {
+                                resolve(that.value);
+                            }
+                        }
+                    });
+                    that.rejectedCallback.push(function () {
+                        try {
+                            let x = rej(that.reason);
+                            reject(x);
+                        } catch (error) {
+                            rejected(that.reason);
+                        }
+                    })
+                }
+            });
+            return promise;
+        }
+        new MyPromise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve(10);
+            }, 1000);
+        }).then((d) => {
+            throw new Error('就是错了')
+        }, (e) => {
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

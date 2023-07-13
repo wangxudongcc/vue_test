@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        /*
+        next();调用Generator函数后,该函数并不执行,返回的也不是函数运行结果
+        而是一个指向"内部状态"的指针状态.
+        调用Generator 函数,返回一个遍历器对象,代表Generator函数的内部指针.
+        一开始函数是不会执行的,因为他是个状态对象;
+        如何让这个Generator函数执行呢?
+        每次调用遍历器对象的next方法,就会返回一个有着value和done两个属性的对象{value:xxx,done:false}
+        done 属性是一个布尔值,表示是否遍历结束;
+        */
+
+        function* fn(){
+          var y =2*(yield(x+1));
+          var z = yield(y/3);
+          return (x+y+z);
+        }
+        var a= foo(5);
+
+        a.next();
+        a.next(15);
+         
+        // let f = fn();
+        // f.next();
+        // setTimeout(() => {
+        //     f.next();
+        // }, 1000);
+    </script> -->
+    <script>
+// function* fn1(){
+//     yield '1';
+//     yield '2';
+// }
+// function ff(){
+//     yield* fn2();
+//     // yield '3';
+// }
+// for(let i of fn2()){
+//     console.log(i);
+// }
+
+// (function* (){
+//     yield '1';
+// })();
+// console.log(a.next().value);
+
+// function f(g1,g2){
+//     yield* g1;
+//     yield* g2;
+// }
+// f(function*(){
+//     yield 1;
+// },function*(){
+//     yield 2;
+// })
+
+// function* gen(){
+//     yield* ['a','b','c'];
+// }
+
+function* aa(){
+this.a = 11;
+}
+let obj = {};
+let a= aa.call(obj);
+a.next();
+console.log(a,obj);
+    </script>
+</body>
+
+</html>

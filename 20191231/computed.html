@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        <input type="text" v-model="val">
+        {{val | serve }}
+         <p>{{val}}</p>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+          val:'珠峰培训'
+        },
+        computed:{ 
+            reverse(){
+               return this.val.split('').reverse().join('')
+           }
+        },
+        filters:{
+            serve(val){
+                    return val.split('').reverse().join('')
+                },
+                clearNum(val){
+                    return val.replace(/\d+/,'')
+               }
+           }
+    })
+    </script>
+</body>
+</html>

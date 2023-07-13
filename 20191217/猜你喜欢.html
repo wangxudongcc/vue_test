@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" value="猜你喜欢" id='xh'>
+        <div id="div1"></div>
+        <ul id="ul"></ul>
+    </div>
+    <script>
+        let obj = {
+            "电影": ['哥斯拉', '调音师', '无间道', '葫芦娃', '复仇者联盟'],
+            "音乐": ['七里香', '咖啡', '暗香', '窗外', '小伟'],
+            "电视剧": ['路径', '飒飒', '大苏打', '发我', '大气圈']
+        }
+
+        let arr = Object.keys(obj);
+        let xharr = getCookie('xihuan');
+        if (xharr) {
+            xh.style.display = 'block';
+            xh.onclick = function () {
+                xharr = JSON.parse(getCookie('xihuan'));
+                let concatArr = [];
+                xharr.forEach(item => {
+                    concatArr.push(...obj[item])
+                });
+                console.log(concatArr);
+                render(concatArr.sort((a, b) => Math.random() - 0.5).slice(0, 5));
+            }
+        } else {
+            xh.style.display = 'none';
+        }
+        arr.forEach((e, i) => {
+            let btn = document.createElement('button');
+            btn.innerHTML = e;
+            if (i === 0) {
+                btn.className = 'active';
+                render(obj[arr[0]]);
+            }
+
+            btn.onclick = function () {
+                let btns = document.querySelectorAll('button');
+                btns.forEach((ee, li) => ee.className = '');
+                this.className = 'active';
+                let xharr = getCookie('xihuan');
+
+                if (xharr) {
+                    xharr = JSON.parse(xharr);
+                    console.log(xharr);
+                } else {
+                    xharr = [];
+                }
+                if (!xharr.includes(e)) {
+                    xharr.push(e);
+                    console.log(xharr);
+                    setCookie('xihuan', JSON.stringify(xharr));
+                }
+                render(obj[arr[i]]);
+            }
+            div1.appendChild(btn);
+        });
+
+        function render(arr) {
+            let html = '';
+            arr.forEach(ele => {
+                html += '<li>' + ele + '</li>'
+            });
+            ul.innerHTML = html;
+        }
+
+
+        function setCookie(...arg) {
+            if (arg.length === 2) {
+                document.cookie = arg[0] + '=' + arg[1];
+                console.log('2' + document.cookie)
+                return;
+            }
+            if (arg.length === 3) {
+                if (typeof arg[2] === 'string') {
+                    document.cookie = arg[0] + '=' + arg[1] + ';Expires=' + new Date(arg[2]);
+                    console.log('string' + document.cookie)
+                    return;
+                }
+                if (typeof arg[2] === 'number') {
+                    let data = new Data();
+                    let sd = new Date;
+                    sd.setDate(data.getDate() + arg[2]);
+
+                    document.cookie = arg[0] + '=' + arg[1] + ';Expires=' + sd;
+                    console.log('number' + document.cookie)
+                }
+            }
+        }
+
+        function getCookie(val) {
+            let ary = document.cookie.split('; '),
+                v;
+            ary.forEach(item => {
+                let ary2 = item.split('=');
+                if (ary2[0] === val) {
+                    v = ary2[1];
+                    console.log(ary,val)
+                    return;
+                }
+            })
+            return v;
+        }
+    </script>
+
+</body>
+
+</html>

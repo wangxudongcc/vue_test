@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../20191224/node_modules/axios/dist/axios.js"></script>
+    <script>
+        let timer = null;
+
+        axios.interceptors.request.use(function(config){
+
+        })
+        //自定义拦截器(自定义拦截了之后,只要用instance请求的都会拦截):
+        // const instance = axios.create();
+                // instance ===axios
+                // 所以取消拦截器的代码必须要写在该拦截器里面嘛;
+        const instance = axios.create({
+            baseUrl:'/a'
+
+        });
+        instance.interceptors.request.use((config)=>{
+            console.log("拦截了"+config);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 全局和局部注册 -->
+    <div id="app">
+        
+        <hr>
+        <temp1></temp1>
+    </div>
+    <script>
+        const ppa = {
+            template:'<div>第一个子组件</div>',
+            components:{
+                ppa
+            }
+        }
+        const temp1 = {
+            template:'#temp1'
+        }
+        Vue.component('ppa',ppa);
+        new Vue({
+            el:'#app',
+            components:{
+temp1
+            }
+        })
+    </script>
+</body>
+</html>

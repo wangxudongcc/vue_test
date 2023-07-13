@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+    <div id="app">
+        <input type="text" v-model="txt" @keyup:'add'>
+        <ul>
+            <li v-for='(val,key) in key'></li>
+            <input type="checkbox" v-model='val.checked'>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                ary:[{
+                    id:0,
+                
+                }]
+            },methods:{
+
+            },
+            // watch中监听的都是data中的数据;
+
+            watch:{
+                ary(){
+                    console.log('触发');
+                    localStorage.setItem('data',JSON.stringify(this.ary));
+                }
+            }
+        })
+        function getItem(){
+            localStorage.getItem('data') || [{
+                id:0,val:'vue'
+            }]
+        }
+    </script>
+</body>
+</html>
