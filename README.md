@@ -3,10 +3,10 @@ This is the first file.
 
 Nice to meet you!
 
-git add . 
-git commit -m ''
-git pull
-git push 
+1.git add . 
+2.git commit -m ''
+3.git pull
+4.git push 
 
 
 三年了,我回来了 20220803
