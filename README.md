@@ -5,13 +5,13 @@ Nice to meet you!
 
 代码提交git 指令
 
-1.git add . 
+git add . 
 
-2.git commit -m ''
+git commit -m ''
 
-3.git pull
+git pull
 
-4.git push 
+git push 
 
 
 三年了,我回来了 20220803
