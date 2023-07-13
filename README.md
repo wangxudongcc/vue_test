@@ -3,6 +3,7 @@ This is the first file.
 
 Nice to meet you!
 
+代码提交git 指令
 1.git add . 
 
 2.git commit -m ''
