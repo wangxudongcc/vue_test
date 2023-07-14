@@ -124,6 +124,47 @@
         transform: rotate(135deg);
         right: -20px;
        }
+       .hr-solid-content,
+       .hr-dashed-content,
+       .hr-mid-border-content
+       {
+        color:#23C9b6;
+        border: 0;
+        font-size: 12px;
+        padding:1em 0;
+        position: relative;
+       }
+
+       .hr-solid-content::before,
+       .hr-dashed-content::before,
+       .hr-mid-border-content::before{
+        content: attr(data-content);
+        position: absolute;
+        padding: 0 1ch;
+        line-height: 1px;
+        border: solid red;
+        border-width:0 50vw;
+        width: fit-content;
+        white-space:nowrap;
+        left: 50%;
+        transform: translateX(-50%);
+       }
+    
+       .hr-dashed-content::before{
+        border-image: repeating-linear-gradient(90deg,rgb(7, 7, 242),rgb(245, 6, 6) 1px ,transparent 1px,transparent 2px)0 85% / / 0 repeat;
+
+       }
+       .hr-mid-border-content::after{
+        content: attr(data-content);
+        position: absolute;
+        padding: 4px 1ch;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: transparent;
+        border: 1px solid blue;
+       }
+ 
     </style>
 </head>
 
@@ -143,9 +184,14 @@
     <hr class="hr-shadow">
     <hr class="hr-mid-circle">
     <hr class="hr-mid-square">
+    <hr class="hr-double-arrow">
 
-   <hr class="hr-double-arrow">
-    
+    <hr class="hr-solid-content" data-content="分割线">
+    <hr class="hr-solid-content" data-content="文字自适应 背景透明">
+    <hr class="hr-dashed-content" data-content="分隔线">
+    <hr class="hr-mid-border-content" data-content="分割线">
+    <hr class="hr-mid-border-content" data-content="分隔线">
 </body>
+
 
 </html>
