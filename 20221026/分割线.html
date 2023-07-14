@@ -94,15 +94,36 @@
             background-size: 100% 1px;
         }
 
-        .box1,
-        .box2 {
-            width: 100px;
-            height: 100px;
-            border: 1px solid red;
-            display: flex;
-            justify-content: space-around;
-            align-items: normal;
-        }
+       .hr-double-arrow{
+        color: #d0d0d5;
+        border: double;
+        border-width: 3px 5px;
+        border-color: #d0d0d5 transparent;
+        height: 1px;
+        overflow: visible;
+        margin-left: 20px;
+        margin-right: 20px;
+        position: relative;
+       }
+       .hr-double-arrow:before,
+       .hr-double-arrow::after{
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-width: 0 3px 3px 0;
+        border-style: double;
+        top:-3px;
+        background: radial-gradient(2px at 1px 1px,currentColor 2px,transparent 0) no-repeat;
+       }
+       .hr-double-arrow::before{
+        transform:rotate(-45deg);
+        left:-20px;
+       }
+       .hr-double-arrow:after{
+        transform: rotate(135deg);
+        right: -20px;
+       }
     </style>
 </head>
 
@@ -123,37 +144,8 @@
     <hr class="hr-mid-circle">
     <hr class="hr-mid-square">
 
-    <div style="border: 1px solid blue;">
-        <div class="box1"></div>
-        <div class="box2"></div>
-    </div>
-    <script>
-         function foo() {
-            console.log("foo333")
-        }
-        foo()
-        var foo = function () {
-            debugger
-            console.log("foo11111111")
-        }
-        foo()
-        var foo = function () {
-            console.log("foo222222222")
-        }
-        foo()
-        
-        function foo() {
-            console.log("foo444")
-        }
-        foo()
-       
-
-      
-
-
-       
-
-    </script>
+   <hr class="hr-double-arrow">
+    
 </body>
 
 </html>
