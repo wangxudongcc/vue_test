@@ -7,6 +7,26 @@
 </head>
 <body>
     <!-- <script src="./9.proxyBase.js"></script> -->
-    <script src="./finalizationRegistry.js"></script>
+    <!-- <script src="./finalizationRegistry.js"></script> -->
+    <!-- <script src="./9.2proxy&Reflect.js"></script> -->
+    <input type="text" id="inputText">
+    <button  onclick="showValue()"> 点击</button>
+    <script>
+        // 有一个对象和一个属性，在浏览器输入框里面输入这个对象的属性，然后点击按钮后弹出这个对应的值
+  let person = {
+    name:'wang'
+  }
+  function showValue(){
+     const inputText =document.getElementById('inputText').value
+     if(person.hasOwnProperty(inputText)){
+        alert(person[inputText])
+     }else{
+        alert('未找到对应的属性')
+        return false
+     }
+
+  }
+
+    </script>
 </body>
 </html>
