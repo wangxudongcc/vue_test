@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,4 +24,31 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        let registry = new FinalizationRegistry(data => {
+            console.log(data)
+        })
+
+        function foo() {
+            let a = {
+                name: 'hello'
+            }
+            registry.register(a, { msg: 'a 对象被回收了' } )
+        }
+
+        foo()
+    </script>
+</body>
+
+>>>>>>> 6a0780528c0c1f3bf90b064d45ce15c0dfd88d06
 </html>
