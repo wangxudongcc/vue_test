@@ -86,3 +86,5 @@ myTarget.foo = "bar";
 // Object.getPrototypeOf(proxy);
 // console.log(Object.prototype.isPrototypeOf(proxy))
 // console.log(proxy instanceof Object)
+
+
