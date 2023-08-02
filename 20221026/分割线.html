@@ -10,6 +10,48 @@
             border: 0;
             border-top: 1px solid red
         }
+<<<<<<< HEAD
+        .hr-dotted{
+            border: 0;
+            border-top: 1px dotted blue
+        }
+        .hr-dotted2{
+            border: 0;
+            border-top: 2px dotted blue
+        }
+        .hr-dashed{
+            border: 0;
+            border-top: 1px dashed purple
+        }
+        .hr-dashed2{
+            border: 0;
+            border-top: 2px dashed purple
+        }
+        .hr-double{
+            border: 0;
+            border-top: 3px double pink
+        }
+        .hr-dashed-fixed{
+            border: 0;
+            padding-top: 1px;
+            background: repeating-linear-gradient(to right,red 0px,yellow 5px,transparent 0px,transparent 10px);
+            background: repeating-linear-gradient(to right,red 0 var(--dashed-filled,4px),transparent 0 calc(var(--dashed-filled,4px)+var(--dashed-open,6px)));
+        }
+        .hr-edge-weak{
+            border: 0;
+            padding-top:3px;
+            background:linear-gradient(to left,transparent,rgb(235, 61, 90),transparent)
+        }
+        .hr-twill{
+            border: 0;
+            padding: 5px;
+            background: repeating-linear-gradient(135deg,red 0px,purple 0px,transparent 1px ,transparent 6px );
+        }
+        .hr-twill-colorful{
+            border: 0;
+            padding: 3px;
+            background: linear-gradient(135deg, red, orange,green, blue, purple);
+=======
 
         .hr-dotted {
             border: 0;
@@ -59,12 +101,17 @@
             border: 0;
             padding: 3px;
             background: linear-gradient(135deg, red, orange, green, blue, purple);
+>>>>>>> 850e77f654fe7b695d365de6b1c655ee4211f295
             --mask-image: repeating-linear-gradient(135deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
             -webkit-mask-image: var(--mask-image);
             mask-image: var(--mask-image);
         }
+<<<<<<< HEAD
+        .hr-wavy{
+=======
 
         .hr-wavy {
+>>>>>>> 850e77f654fe7b695d365de6b1c655ee4211f295
             border: 0;
             color: aqua;
             height: .5em;
@@ -72,6 +119,13 @@
             letter-spacing: 100vw;
             padding-top: .5em;
         }
+<<<<<<< HEAD
+        .hr-wavy::before{
+            content: "\2000\2000";
+            text-decoration: overline wavy;
+        }
+        .hr-shadow{
+=======
 
         .hr-wavy::before {
             content: "\2000\2000";
@@ -79,12 +133,21 @@
         }
 
         .hr-shadow {
+>>>>>>> 850e77f654fe7b695d365de6b1c655ee4211f295
             border: 0;
             padding-top: 20px;
             color: blue;
             border-top: 1px solid rgba(0, 0, 0, .1);
             box-shadow: inset 0 10px 10px -10px;
         }
+<<<<<<< HEAD
+        .hr-mid-circle,.hr-mid-square{
+            border: 0;
+            color:#d0d0d5;
+            background:linear-gradient(currentColor,currentColor) no-repeat center;
+            background-size: 100% 1px;
+        }
+=======
 
         .hr-mid-circle,
         .hr-mid-square {
@@ -165,6 +228,7 @@
         border: 1px solid blue;
        }
  
+>>>>>>> 850e77f654fe7b695d365de6b1c655ee4211f295
     </style>
 </head>
 
@@ -184,6 +248,10 @@
     <hr class="hr-shadow">
     <hr class="hr-mid-circle">
     <hr class="hr-mid-square">
+<<<<<<< HEAD
+</body>
+
+=======
     <hr class="hr-double-arrow">
 
     <hr class="hr-solid-content" data-content="分割线">
@@ -194,4 +262,5 @@
 </body>
 
 
+>>>>>>> 850e77f654fe7b695d365de6b1c655ee4211f295
 </html>
