@@ -1,2 +1,11 @@
 1.Uncaught TypeError: Cannot read properties of undefined (reading 'replevyMainVo')
+->取值的问题，对应的数据没有
+
+230807
+1.replevy_sub_edit2.js?v=1:341 Uncaught ReferenceError: that is not defined
+->做了逻辑上的修改
+2.Uncaught TypeError: Cannot read properties of undefined (reading 'length')
+->
+3.TypeError: Cannot read properties of undefined (reading 'replevyType')
+
 
