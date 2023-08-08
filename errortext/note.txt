@@ -8,4 +8,7 @@
 ->
 3.TypeError: Cannot read properties of undefined (reading 'replevyType')
 
+0808
+4.vue.min.js?v=1:6 ReferenceError: Cannot access 'coinsTemplate' before initialization
+->定义之前不能引用
 
