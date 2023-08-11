@@ -22,5 +22,9 @@ vue中的属性，jQuery用不了
 8.TypeError: this.bindEvent is not a function
 ->把this改成page
 10.jquery.dataTables.min.js?v=1:90 Uncaught TypeError: Cannot read properties of undefined (reading 'length')
+0811
+11.assure_edit2.js?v=1:29 Uncaught SyntaxError: Duplicate parameter name not allowed in this context (at assure_edit2.js?v=1:29:3)
+->代码里面重复了
+12.Uncaught TypeError: Cannot read properties of undefined (reading 'assureVo.reverseAmount')
 
 
