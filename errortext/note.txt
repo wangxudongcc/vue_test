@@ -5,10 +5,22 @@
 1.replevy_sub_edit2.js?v=1:341 Uncaught ReferenceError: that is not defined
 ->做了逻辑上的修改
 2.Uncaught TypeError: Cannot read properties of undefined (reading 'length')
-->
+->数据没传到route里，initdata 字段写错
 3.TypeError: Cannot read properties of undefined (reading 'replevyType')
-
+->this数据有问题
 0808
 4.vue.min.js?v=1:6 ReferenceError: Cannot access 'coinsTemplate' before initialization
 ->定义之前不能引用
+0809
+5.vue.min.js?v=1:6 TypeError: Cannot use 'in' operator to search for 'replevyWay' in 00
+->v-model的问题
+0810
+6.replevy_sub_edit2.js?v=1:427 Uncaught TypeError: Cannot read properties of undefined (reading 'repleviedMoney')
+->找不到对应的值
+7.bootstrap.min.js?v=1:11 Uncaught TypeError: Cannot read properties of null (reading 'off')
+vue中的属性，jQuery用不了
+8.TypeError: this.bindEvent is not a function
+->把this改成page
+10.jquery.dataTables.min.js?v=1:90 Uncaught TypeError: Cannot read properties of undefined (reading 'length')
+
 
