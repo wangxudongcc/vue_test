@@ -28,5 +28,7 @@ vue中的属性，jQuery用不了
 12.Uncaught TypeError: Cannot read properties of undefined (reading 'assureVo.reverseAmount')
 0815
 13->Uncaught SyntaxError: Identifier 'addressSelect' has already been declared 
+0816
+14.Uncaught SyntaxError: Identifier 'key' has already been declared
 
 
