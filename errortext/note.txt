@@ -26,6 +26,7 @@ vue中的属性，jQuery用不了
 11.assure_edit2.js?v=1:29 Uncaught SyntaxError: Duplicate parameter name not allowed in this context (at assure_edit2.js?v=1:29:3)
 ->代码里面重复了
 12.Uncaught TypeError: Cannot read properties of undefined (reading 'assureVo.reverseAmount')
+a["assureVo.assureVo"]
 0815
 13->Uncaught SyntaxError: Identifier 'addressSelect' has already been declared 
 0816
