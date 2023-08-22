@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function recursivelyCheckEqual(x, ...rest) {
+            // console.log(rest,'rest',...rest)
+            // console.log(rest.length < 2 || recursivelyCheckEqual(...rest))
+            return Object.is(x, rest[0]) && (rest.length < 2 || recursivelyCheckEqual(...rest))
+        }
+
+        console.log(recursivelyCheckEqual(1,1,1,1,1,1,1))
+    </script>
+</body>
+
+</html>

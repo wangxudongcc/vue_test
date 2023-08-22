@@ -30,5 +30,8 @@ vue中的属性，jQuery用不了
 13->Uncaught SyntaxError: Identifier 'addressSelect' has already been declared 
 0816
 14.Uncaught SyntaxError: Identifier 'key' has already been declared
+0821
+15.vue.min.js?v=1:6 TypeError: Cannot read properties of undefined (reading 'lossPropVos')
+    at wn.eval (eval at Ya (vue.min.js?v=1:6:91725), <anonymous>:3:2631)
 
 
