@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form id="singleperson">
+        <li class="tab-pane fade in active" id="taball">
+            <div class="panel panel-body">
+                <div class="content-style">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label text-right" for="zeroReasonCode">
+                                    跟踪要求提示
+                                </label>
+                                <div class="col-md-7">
+                                    <textarea id="" name="injuredVo.traceRequired"
+                                        value="999999999999"
+                                        class="form-contrl" rows="6" cols="80" style="resize: none"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </li>
+
+    </form>
+
+    <script src="../vue_test/node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        // let index = $.view().index;
+        let a = $("li.active").get(0)
+        console.log($("li.active"),a)
+    </script>
+</body>
+
+</html>
