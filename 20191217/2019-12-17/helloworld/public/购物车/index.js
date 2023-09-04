@@ -7,7 +7,6 @@ if(!style){
        localStorage.setItem('style',d);
     })
 }else{
- 
     let link = document.createElement('style');
     link.innerHTML = style;
     document.querySelector('head').append(link);
@@ -46,6 +45,7 @@ window.onstorage = function(){
 //删除购物车
 ul2.onclick = function(ev){
     if(ev.target.tagName === 'LI'){
+        // filter是将满足【item !== ev.target.innerText】该条件的情况下，返回的新数组
         ary = ary.filter(item=>item !== ev.target.innerText);
         render(ary);
         localStorage.setItem('gwc',JSON.stringify(ary));
