@@ -5,38 +5,29 @@
 </template>
 
 <script>
-import $eventBus  from "./eventBus"
--------------
+import $eventBus from "./eventBus";
 
 export default {
-name:"ComponentOne",
-data(){
-  return {
-    name :'111',
-    flag:true
-  }
+  name: "ComponentOne",
+  data() {
+    return {
+      name: "111",
+      flag: true,
+      formData: {},
+    };
   },
-created(){
-  console.log("created")
-},
-  destroyed() {
- console.log("destroyed")
-    },
+  beforeDestroy() {
+    this._zizujian();
+  },
   methods: {
-    _zizujian(){  
-      // this.flag=!this.flag
-      console.log(this,"执行_zizujian")
-      console.log("输出$off")
+    _zizujian() {
+      let that = this;
       $eventBus.$off("_zizujian");
-
       $eventBus.$on("_zizujian", (rucan1, rucan2) => {
-        console.log(typeof rucan1, typeof rucan2)
+        that.formData = rucan1;
+        that.name = rucan2;
       })
-   
-     
     }
-  
-  },
-}
-
+  }
+};
 </script>

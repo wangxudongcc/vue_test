@@ -6,7 +6,7 @@
 export default {
 name:"ComponentTwo",
 destroyed(){
-    console.log("Component2Component2")
+    console.log("组件2")
 }
 }
 </script>
