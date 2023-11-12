@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"><span>
+        珠峰培训
+    </span></div>
+    <script>
+        let box1 = document.querySelector('.box')
+        let box2 = box1.cloneNode(true)
+        let box3 = box2.cloneNode(false )
+        console.log(box1,box2,box3)
+    </script>
+</body>
+</html>
