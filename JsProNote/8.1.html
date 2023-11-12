@@ -9,13 +9,27 @@
 
 <body>
     <script>
-        function recursivelyCheckEqual(x, ...rest) {
-            // console.log(rest,'rest',...rest)
-            // console.log(rest.length < 2 || recursivelyCheckEqual(...rest))
-            return Object.is(x, rest[0]) && (rest.length < 2 || recursivelyCheckEqual(...rest))
-        }
+        // function recursivelyCheckEqual(x, ...rest) {
+        //     // console.log(rest,'rest',...rest)
+        //     // console.log(rest.length < 2 || recursivelyCheckEqual(...rest))
+        //     return Object.is(x, rest[0]) && (rest.length < 2 || recursivelyCheckEqual(...rest))
+        // }
 
-        console.log(recursivelyCheckEqual(1,1,1,1,1,1,1))
+        // console.log(recursivelyCheckEqual(1,1,1,1,1,1,1))
+
+    function checkNumber(num) {
+        if (num > 10) {
+            console.log("Number is greater than 10");
+            return true;
+        } else {
+            console.log("Number is not greater than 10");
+            return false;
+        }
+    }
+
+    console.log(checkNumber(15))
+    console.log(checkNumber(5))
+      
     </script>
 </body>
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="nav nav-tabs nav-grenn" :class="activeUlPerson">
+            <li v-for="(item,index) of personList.injuredVoList">
+                <a data-toggle="tab" href="taball" @click="changeLabel(index)" :val="item.id"
+                    :tempid="'temp'+item.tempId">
+                    {{!item.personName?'未命名':item.personName}}
+                </a>
+                <span @click="removePersondlossSpan">
+                    <i>111</i>
+                    <i>222</i>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <script
+        src="C:\Users\xudong\Desktop\hello-world\20191217\2019-12-17\helloworld\public\javascripts\jquery-3.2.1.min.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>

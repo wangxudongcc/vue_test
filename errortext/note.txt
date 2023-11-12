@@ -34,5 +34,8 @@ a["assureVo.assureVo"]
 0821
 15.vue.min.js?v=1:6 TypeError: Cannot read properties of undefined (reading 'lossPropVos')
     at wn.eval (eval at Ya (vue.min.js?v=1:6:91725), <anonymous>:3:2631)
-
+0830
+16.TypeError: Cannot read properties of undefined (reading 'claimNatureCode')
+取值错误
+17.vue.min.js?v=1:6 TypeError: Cannot set properties of undefined (setting 'temp0')
 
