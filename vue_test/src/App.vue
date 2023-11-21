@@ -77,6 +77,7 @@
 <script>
 // import ComponentOne from "./views/practise/components/componentOne.vue";
 // import $eventBus from "./views/practise/components/eventBus";
+import dataForm from "./views/practise/data.js";
 export default {
   data() {
     return {
@@ -92,13 +93,16 @@ export default {
   components: {
     // ComponentOne,
   },
+  created(){
+console.log(dataForm,'dataForm')
+console.log(dataForm.yesOrNoData(), this.phoneNumberList[this.phoneNumberList.length-1].value)
+},
   computed: {
     labelJudge() {
-      let labelInfo;
+      // let labelInfo;
       // this.personList.forEach((item, index) => {
       //   console.log(item, index, 'item,index')
       //   if (item.phoneNumber==this.phoneNumberList[this.phoneNumberList.length-1].value) {
-          
       //     labelInfo= '手机号：' + this.personList[index].phoneNumber + '存在于本系统中,该用户名为' + item.name
       //   } else if (item.name==this.nameList[this.nameList.length-1].value) {
       //     labelInfo= item.name+'存在于本系统中,手机号为'+ item.phoneNumber 
@@ -106,16 +110,21 @@ export default {
       //     labelInfo='需要填写手机号码或者姓名'
       //   }
       // })
-      let personItem = this.personList.find(item => item.phoneNumber == this.phoneNumberList[this.phoneNumberList.length-1].value);
-      let personNameItem = this.personList.find(item =>item.name == this.nameList[this.nameList.length-1].value);
-      if (personItem) {
-        labelInfo= '手机号：' + personItem.phoneNumber + '存在于本系统中,该用户名为' + personItem.name
-      }else if(personNameItem){
-        labelInfo= personNameItem.name+'存在于本系统中,手机号为'+ personNameItem.phoneNumber 
-      }else{
-          labelInfo='需要填写手机号码或者姓名'
-        }
-      return labelInfo
+
+
+      // let labelInfo = dataForm.yesOrNoData( this.phoneNumberList[this.phoneNumberList.length-1].value)
+      
+      // this.personList.find(item => item.phoneNumber == this.phoneNumberList[this.phoneNumberList.length-1].value);
+      // let personNameItem = this.personList.find(item =>item.name == this.nameList[this.nameList.length-1].value);
+      // if (personItem) {
+      //   labelInfo= '手机号：' + personItem.phoneNumber + '存在于本系统中,该用户名为' + personItem.name
+      // }else if(personNameItem){
+      //   labelInfo=
+      // }else{
+      //     labelInfo='需要填写手机号码或者姓名'
+      //   }
+      // return labelInfo
+      return false
     },
     phoneAmount() {
       return this.phoneNumberList.length
