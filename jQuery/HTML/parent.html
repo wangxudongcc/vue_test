@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #QQQ{
+            display:'';
+        }
+    </style>
 </head>
 
 <body>
-    <div>
+    <div id='QQQ'>999
         <ul class="nav nav-tabs nav-grenn" :class="activeUlPerson">
             <li v-for="(item,index) of personList.injuredVoList">
                 <a data-toggle="tab" href="taball" @click="changeLabel(index)" :val="item.id"
@@ -22,9 +27,44 @@
             </li>
         </ul>
     </div>
-    <script
-        src="C:\Users\xudong\Desktop\hello-world\20191217\2019-12-17\helloworld\public\javascripts\jquery-3.2.1.min.js"></script>
+    <!-- <script
+        src="C:\Users\xudong\Desktop\hello-world\20191217\2019-12-17\helloworld\public\javascripts\jquery-3.2.1.min.js"></script> -->
     <script>
+        function checkCondition() {
+            let opanion = (str) => {
+                if (str != "" && str != null) {
+                    var tmp = str.substring(0, 1);
+                    if (tmp == "*") {
+                        console.log(1)
+                        return false;
+                    }
+                }
+            };
+            opanion('*1*1');
+            // opanion('');
+            // opanion('1*!*');
+        }
+        //     function checkCondition(){
+        // 	var objArray=['1','1*1','']
+        // 	for(var i=0;i<objArray.length;i++){
+        // 			if(objArray[i]!=""||objArray[i]!=null){
+        // 				var tmp=objArray[i].substring(0,1);
+        // 				if(tmp=="*"){
+        // 					console.error("查询条件第一位不能为*",i);
+        // 					return false;
+        // 				}
+        // 			}
+        // 	}
+        // }
+        // checkCondition()
+        debugger
+        if (checkCondition() == false) {
+            console.log(checkCondition())
+            debugger
+            // return false;
+        } else {
+            console.log('88889')
+        }
     </script>
 </body>
 
