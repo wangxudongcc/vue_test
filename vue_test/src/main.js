@@ -39,6 +39,7 @@ const practise = [
   },
 ];
 const router = new VueRouter({
+  mode: "history", // require service support
   routes: [...element, ...practise],
 });
 
