@@ -27,7 +27,7 @@ const practise = [
   {
     path: "/practise",
     component: Layout,
-    redirect: "index",
+    redirect: "/practise/index",
     children: [
       {
         path: "index",
