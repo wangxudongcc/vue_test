@@ -25,7 +25,6 @@ export default {
         return {
             Logo: Logo,
             mouseInAsideBar: false,
-            isqiankun: window.__POWERED_BY_QIANKUN__ ? true : false,
         };
     },
     computed: {
