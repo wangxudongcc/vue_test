@@ -12,6 +12,8 @@ git pull
 
 git push 
 
+![企业微信截图_17084017061180(1)](https://github.com/wangxudongcc/hello-world/assets/53433096/363ed9b4-4558-497f-8ad4-6a85f1f11c22)
+
 
 三年了,我回来了 20220803
 
