@@ -34,20 +34,14 @@ export default {
                 callback: () => {
                     this.toToolDeatail("element");
                 }
+            },{
+                label: "jQuery",
+                icon: "el-icon-eleme",
+                callback: () => {
+                    this.toToolDeatail("jQuery");
+                }
             }],
         }
-    },
-    computed: {
-        // tools() {
-        //     let arr = [];
-        //     this.toolsConf.forEach((item) => {
-        //         if (!item.hidden) {
-        //             arr.push(item);
-        //         }
-        //     });
-        //     console.log(arr,'arr')
-        //     return arr;
-        // }
     },
     methods: {
         toToolDeatail(type) {
@@ -59,9 +53,12 @@ export default {
             if (type == "practise") {
                 path = "/practise/practiseMainEdit";
             }
-             // 练习
+             // ele
              if (type == "element") {
                 path = "/element/index";
+            }
+            if (type == "jQuery") {
+                path = "/jQuery/parent";
             }
             const routeUrl = this.$router.resolve({
                 path: path,

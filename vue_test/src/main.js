@@ -27,10 +27,10 @@ const practise = [
   {
     path: "/practise",
     component: Layout,
-    redirect: "/practise/index",
+    redirect: "/practise/practiseMainEdit",
     children: [
       {
-        path: "index",
+        path: "practiseMainEdit",
         name: "practiseMainEdit",
         component: () => import("./views/practise/practiseMainEdit.vue"),
         props: (route) => route.query,
@@ -38,9 +38,25 @@ const practise = [
     ],
   },
 ];
+const jQuery = [
+  {
+    path: "/jquery",
+    component: Layout,
+    redirect: "/jQuery/parent",
+    children: [
+      {
+        path: "parent",
+        name: "parent",
+        component: () => import("./views/jQuery/parent.vue"),
+        props: (route) => route.query,
+      },
+    ],
+  },
+];
+
 const router = new VueRouter({
   mode: "history", // require service support
-  routes: [...element, ...practise],
+  routes: [...element, ...practise,...jQuery],
 });
 
 new Vue({

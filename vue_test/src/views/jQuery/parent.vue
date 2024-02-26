@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #QQQ{
-            display:'';
-        }
-    </style>
-</head>
-
-<body>
-    <div id='QQQ'>999
+<template>
+      <div id='QQQ'>999
         <ul class="nav nav-tabs nav-grenn" :class="activeUlPerson">
-            <li v-for="(item,index) of personList.injuredVoList">
+            <li v-for="(item,index) of personList.injuredVoList" :key="index">
                 <a data-toggle="tab" href="taball" @click="changeLabel(index)" :val="item.id"
                     :tempid="'temp'+item.tempId">
                     {{!item.personName?'未命名':item.personName}}
@@ -27,10 +13,11 @@
             </li>
         </ul>
     </div>
-    <!-- <script
-        src="C:\Users\xudong\Desktop\hello-world\20191217\2019-12-17\helloworld\public\javascripts\jquery-3.2.1.min.js"></script> -->
-    <script>
-        function checkCondition() {
+</template>
+<script>
+export default {
+    methods:{
+         checkCondition() {
             let opanion = (str) => {
                 if (str != "" && str != null) {
                     var tmp = str.substring(0, 1);
@@ -57,15 +44,17 @@
         // 	}
         // }
         // checkCondition()
-        debugger
-        if (checkCondition() == false) {
-            console.log(checkCondition())
-            debugger
-            // return false;
-        } else {
-            console.log('88889')
-        }
-    </script>
-</body>
-
-</html>
+        // if (checkCondition() == false) {
+        //     console.log(checkCondition())
+        //     // return false;
+        // } else {
+        //     console.log('88889')
+        // }
+    }
+}
+</script>
+<style>
+#QQQ{
+    display:'';
+}
+</style>
