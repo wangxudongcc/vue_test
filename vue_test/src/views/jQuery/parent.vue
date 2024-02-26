@@ -1,6 +1,6 @@
 <template>
       <div id='QQQ'>999
-        <ul class="nav nav-tabs nav-grenn" :class="activeUlPerson">
+        <ul class="nav nav-tabs nav-grenn activeUlPerson">
             <li v-for="(item,index) of personList.injuredVoList" :key="index">
                 <a data-toggle="tab" href="taball" @click="changeLabel(index)" :val="item.id"
                     :tempid="'temp'+item.tempId">
@@ -16,6 +16,13 @@
 </template>
 <script>
 export default {
+    data(){
+        return {
+            personList:{
+                injuredVoList:[{personName:'wang',tempId:'123',id:1}]
+            }
+        }
+    },
     methods:{
          checkCondition() {
             let opanion = (str) => {
@@ -30,6 +37,9 @@ export default {
             opanion('*1*1');
             // opanion('');
             // opanion('1*!*');
+        },
+        removePersondlossSpan(){
+            console.log(11)
         }
         //     function checkCondition(){
         // 	var objArray=['1','1*1','']
@@ -54,7 +64,7 @@ export default {
 }
 </script>
 <style>
-#QQQ{
+/* #QQQ{
     display:'';
-}
+} */
 </style>
