@@ -53,10 +53,45 @@ const jQuery = [
     ],
   },
 ];
+const zhangxinxuWeb = [
+  {
+    path: "/zhangxinxuWeb",
+    component: Layout,
+    redirect: "/zhangxinxuWeb/cssImageAspectRatioLayout",
+    children: [
+      {
+        path: "cssImageAspectRatioLayout",
+        name: "cssImageAspectRatioLayout",
+        component: () => import("./views/zhangxinxuWeb/cssImageAspectRatioLayout.vue"),
+        props: (route) => route.query,
+      },
+      {
+        path: "cssTextWrapBalance",
+        name: "cssTextWrapBalance",
+        component: () => import("./views/zhangxinxuWeb/cssTextWrapBalance.vue"),
+        props: (route) => route.query,
+      },
+      {
+        path: "htmlSampElement",
+        name: "htmlSampElement",
+        component: () => import("./views/zhangxinxuWeb/htmlSampElement.vue"),
+        props: (route) => route.query,
+      },
+
+      {
+        path: "overlappingPosition",
+        name: "overlappingPosition",
+        component: () => import("./views/zhangxinxuWeb/overlappingPosition.vue"),
+        props: (route) => route.query,
+      },
+      
+    ],
+  },
+];
 
 const router = new VueRouter({
   mode: "history", // require service support
-  routes: [...element, ...practise,...jQuery],
+  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb],
 });
 
 new Vue({

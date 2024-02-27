@@ -40,6 +40,12 @@ export default {
                 callback: () => {
                     this.toToolDeatail("jQuery");
                 }
+            },{
+                label: "zhangxinxuWeb",
+                icon: "el-icon-eleme",
+                callback: () => {
+                    this.toToolDeatail("zhangxinxuWeb");
+                }
             }],
         }
     },
@@ -59,6 +65,9 @@ export default {
             }
             if (type == "jQuery") {
                 path = "/jQuery/parent";
+            }
+            if (type == "zhangxinxuWeb") {
+                path = "/zhangxinxuWeb/overlappingPosition";
             }
             const routeUrl = this.$router.resolve({
                 path: path,
