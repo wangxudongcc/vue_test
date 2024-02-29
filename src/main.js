@@ -95,9 +95,54 @@ const ruanyifeng = [
     redirect: "/ruanyifeng/index",
     children: [
       {
-        path: "ruanyifeng",
-        name: "ruanyifeng",
+        path: "index",
+        name: "index",
         component: () => import("./views/ruanyifeng/index.vue"),
+        props: (route) => route.query,
+      },
+    ],
+  },
+];
+const jsProNote = [
+  {
+    path: "/jsProNote",
+    component: Layout,
+    redirect: "/jsProNote/index",
+    children: [
+      {
+        path: "index",
+        name: "index",
+        component: () => import("./views/jsProNote/index.vue"),
+        props: (route) => route.query,
+      },
+    ],
+  },
+];
+const a20191226 = [
+  {
+    path: "/20191226",
+    component: Layout,
+    redirect: "/20191226/index",
+    children: [
+      {
+        path: "index",
+        name: "index",
+        component: () => import("./views/20191226/index.vue"),
+        props: (route) => route.query,
+      },
+    ],
+  },
+];
+const a20221026 = [
+  {
+    path: "/20221026",
+    component: Layout,
+    redirect: "/20221026/index",
+    children: [
+      {
+        path: "empty",
+        name: "empty",
+        component: () => import("./views/20221026/empty.vue"),
         props: (route) => route.query,
       },
     ],
@@ -106,7 +151,7 @@ const ruanyifeng = [
 
 const router = new VueRouter({
   mode: "history", // require service support
-  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb,...ruanyifeng],
+  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb,...ruanyifeng,...jsProNote,...a20191226,...a20221026],
 });
 
 new Vue({

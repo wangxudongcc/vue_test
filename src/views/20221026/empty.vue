@@ -1,8 +1,9 @@
 <template>
-  <div class="box"></div>
+  <div class="box">
   <div class="container">
     <div class="circle"></div>
   </div>
+</div>
 </template>
 <script>
 // let obj = [1,2,3,4,5,6,7]
@@ -14,15 +15,18 @@ console.log(Object.fromEntries(a));
 console.log(Object.entries(a));
 
 async function fetchUserPreferences() {
-  try {
-    const user = await fetch("/user/preferences").catch((err) => {
-      // throw new Error('fail'+err.message);
-      const wrapErr = new Error("Fail");
-      wrapErr.cause = err;
-      throw wrapErr;
-    });
-  } catch (err) {}
+  // try {
+  //   const user = await fetch("/user/preferences").catch((err) => {
+  //     // throw new Error('fail'+err.message);
+  //     const wrapErr = new Error("Fail");
+  //     wrapErr.cause = err;
+  //     throw wrapErr;
+  //   });
+  // } catch (err) {
+
+  // }
 }
+console.log(foo,fetchUserPreferences)
 </script>
 
 <style>

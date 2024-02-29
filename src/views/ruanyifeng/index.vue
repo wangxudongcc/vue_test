@@ -35,6 +35,7 @@ const person = {
   lastName: "xudong",
   isACommunist: false,
 };
+
 const table = document.createElement("table");
 document.body.append(table);
 
@@ -47,6 +48,7 @@ for (let i = 0; i < count; i++) {
 }
 
 let foo = [1, 2, 2, 23, 2, 3, 34, 1, 56, 6];
+console.log(person,foo)
 let map1 = new Map();
 map1.set("foo1", 5);
 map1.set("foo2", 6);
