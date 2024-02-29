@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<template>
+    <div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        #box {
-            padding: 10px;
-            border: 1px solid pink;
-        }
-    </style>
-</head>
-
-<body> 
-    <!-- 刷新之后还有(数据不变的)
+    </div>
+</template>
+<!-- 刷新之后还有(数据不变的)
         1.刷新之后请求一次数据
         2.把数据存储在浏览器中;
         cookies 
@@ -45,31 +33,28 @@
         }
         removeCookie('a!' )
     </script> -->
-   <script>
+    <script>
     
-        let sql = [{
-            user: 'asdfg',
-            pw: '123'
-        }, {
-            user: 'asd',
-            pw: '321'
-        }]
-        let DIv1 = document.createElement('div')
-        DIv1.innerHTML="666"
-        DIv1.id="btn"
-        document.body.appendChild(DIv1);
-        btn.onclick = function () {
-            let val1 = user.value;
-            let val2 = pw.value;
-            let o = sql.find(item => item.user === val1);
-            if (o) {
-                if (o.pw === val2) {
-                    alert('登陆成功');
-                    document.cookie = 'user' + o.user;
-                }
+    let sql = [{
+        user: 'asdfg',
+        pw: '123'
+    }, {
+        user: 'asd',
+        pw: '321'
+    }]
+    let DIv1 = document.createElement('div')
+    DIv1.innerHTML="666"
+    DIv1.id="btn"
+    document.body.appendChild(DIv1);
+    btn.onclick = function () {
+        let val1 = user.value;
+        let val2 = pw.value;
+        let o = sql.find(item => item.user === val1);
+        if (o) {
+            if (o.pw === val2) {
+                alert('登陆成功');
+                document.cookie = 'user' + o.user;
             }
         }
-    </script>
-</body>
-
-</html>
+    }
+</script>

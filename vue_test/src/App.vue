@@ -9,7 +9,8 @@
                 </div>
                 <div class="middleContent">
                     <el-row v-for="(item,index) of toolsConf" :key="index">
-                    <el-button type="text" :class="item.icon" style="font-size: 18px;" @click="item.callback">&nbsp;{{item.label }}</el-button>
+                    <el-button type="text" style="font-size: 18px;" @click="item.callback">
+                        <svg-icon :icon-class="item.svg" />&nbsp;{{item.label }}</el-button>
                     </el-row>
                 </div>
                 <div class="rightContent"></div>
@@ -24,27 +25,36 @@ export default {
         return {
             toolsConf: [{
                 label: "练习",
+                svg: 'fish',
                 icon: "el-icon-notebook-1",
                 callback: () => {
                     this.toToolDeatail("practise");
                 }
             }, {
                 label: "ELE",
+                svg: 'fish',
                 icon: "el-icon-eleme",
                 callback: () => {
                     this.toToolDeatail("element");
                 }
             },{
                 label: "jQuery",
+                svg: 'fish',
                 icon: "el-icon-eleme",
                 callback: () => {
                     this.toToolDeatail("jQuery");
                 }
             },{
                 label: "zhangxinxuWeb",
-                icon: "el-icon-eleme",
+                svg: 'fish',
                 callback: () => {
                     this.toToolDeatail("zhangxinxuWeb");
+                }
+            },{
+                label: "ruanyifeng",
+                svg: 'fish',
+                callback: () => {
+                    this.toToolDeatail("ruanyifeng");
                 }
             }],
         }
@@ -68,6 +78,9 @@ export default {
             }
             if (type == "zhangxinxuWeb") {
                 path = "/zhangxinxuWeb/overlappingPosition";
+            }
+            if (type == "ruanyifeng") {
+                path = "/ruanyifeng/index";
             }
             const routeUrl = this.$router.resolve({
                 path: path,

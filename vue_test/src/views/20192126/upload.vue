@@ -1,32 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        #bar{
-            width: 100%;
-            height: 5px;
-            position: relative;
-        }
-        #box{
-            width: 0;
-            height: 5px;
-            background: yellow;
-        }
-
-    </style>
-
-
-</head>
-<body>
-        注册的用户名:<input id="user" type="text" /><span id='s'></span>
+<template>
+<div>
+    注册的用户名:<input id="user" type="text" /><span id='s'></span>
         注册的密码:<input type='password' id='pw'/>
     </br>
     注册的密码:<input type='password' id='pw'/>
     <button id='btn'>提交</button>
     <ul id='ul'></ul>
-</form>
+</div>
+</template>
 <script>
     user.onblur = function(){
         ajax('./data.xml',{
@@ -89,5 +70,14 @@ if(myopt.dataType ==='json'){
             }
         }
 </script>
-</body>
-</html>
+<style>
+  #bar{
+            width: 100%;
+            height: 5px;
+            position: relative;
+        }
+        #box{
+            width: 0;
+            height: 5px;
+            background: yellow;
+        }</style>

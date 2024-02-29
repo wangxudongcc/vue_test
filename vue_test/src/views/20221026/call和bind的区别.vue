@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+ 
+<template>
+    <div></div>
+</template>
     <!-- <script>
         ~function(){
             function call(context){
@@ -82,5 +79,3 @@
     }
     fn.call(obj,10,20);
 </script>
-</body>
-</html>

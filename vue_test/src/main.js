@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import Layout from "@/layout";
-
+import '@/icons'
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 // 路由注册全局
@@ -88,10 +88,25 @@ const zhangxinxuWeb = [
     ],
   },
 ];
+const ruanyifeng = [
+  {
+    path: "/ruanyifeng",
+    component: Layout,
+    redirect: "/ruanyifeng/index",
+    children: [
+      {
+        path: "ruanyifeng",
+        name: "ruanyifeng",
+        component: () => import("./views/ruanyifeng/index.vue"),
+        props: (route) => route.query,
+      },
+    ],
+  },
+];
 
 const router = new VueRouter({
   mode: "history", // require service support
-  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb],
+  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb,...ruanyifeng],
 });
 
 new Vue({

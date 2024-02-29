@@ -1,7 +1,7 @@
 // index.js 内代码
 import Vue from 'vue'
-// import SvgIcon from '@/components/SvgIcon'// svg component svg组件
-//TODO:
+import SvgIcon from '@/components/SvgIcon'// svg component svg组件
+
 
 // register globally 全局注册
 Vue.component('svg-icon', SvgIcon)

@@ -1,24 +1,13 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-</head>
-
-<body>
-    <!-- <script src="./9.proxyBase.js"></script> -->
-    <!-- <script src="./finalizationRegistry.js"></script> -->
-    <!-- <script src="./9.3proxyPattern.js"></script> -->
-    <!-- <script src="./9.2proxy&Reflect.js"></script> -->
+<template>
+<div>
     <input type="text" id="inputText" />
     <button onclick="showValue()">点击显示修改输入框</button>
     <br /><br />
     <input id="modifyValueInput" style="visibility: hidden;" placeholder="请输入要修改的值" onblur="modifyValue()"></input>
     <span class="showObject"> </span>
-    <!-- <script>
+</div>
+</template>
+<script>
         let person = {
             name: "wang",
             phone: 1234,
@@ -57,8 +46,4 @@
             }
         }
 
-    </script> -->
-<script src="./11.3asyncawait.js"></script>
-
-</body>
-
+    </script>
