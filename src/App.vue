@@ -156,14 +156,28 @@ export default {
   computed: {
     list_menu() {
       let list = [];
-      for (let i = 0; i < this.toolsConf.length; i += this.col) {
-        if (i % this.col == 0) {
-          list.push([]);
-          for (let j = 0; j < this.col; j++) {
-            list[list.length - 1].push(this.toolsConf[i + j]);
-          }
-        }
+      // for (let i = 0; i < this.toolsConf.length; i += this.col) {
+      //   list.push([]);
+      //   for (let j = 0; this.toolsConf[i + j] && j < this.col; j++) {
+      //     list[list.length - 1].push(this.toolsConf[i + j]);
+      //   }
+      // }
+
+      // this.toolsConf.forEach((item, index) => {
+      //   if (index % this.col == 0) list.push([]);
+      //   list[list.length - 1].push(item);
+      // });
+
+
+      let len = Math.ceil(this.toolsConf.length / this.col);
+      for (let i = 0; i < len; i++) {
+        list.push(this.toolsConf.slice(i * this.col, (i + 1) * this.col));
       }
+
+      
+      // let list0 = [];
+      // Object.assign(list0, this.toolsConf);
+      // while(list0.length) list.push(list0.splice(0, this.col));
       return list;
     }
   },
