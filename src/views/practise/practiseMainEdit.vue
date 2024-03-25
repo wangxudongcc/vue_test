@@ -1,13 +1,20 @@
 
 <template>
   <div>
-    <name-list />
-    <phone-list />
+    <name-list
+      :name-list="nameList"
+      @resetForm=resetForm
+      @changeList="changeList"
+    />
+    <phone-list
+      :phone-number-list = "phoneNumberList"
+      @resetForm=resetForm
+      @changeList="changeList"
+    />
     <el-form label-width="80px" class="demo-dynamic" style="margin:24px auto;width:80%">
       <el-row>
         <el-col :span="10">
-          <el-form-item class="submitTable" label-width="auto" style="{ font-size: 10px ;color:'red'}"
-            :label="labelJudge">
+          <el-form-item class="submitTable" label-width="auto" style="font-size: 10px ;color:'red'">
           </el-form-item>
         </el-col>
         <el-col :span="6">&nbsp;</el-col>
@@ -42,12 +49,12 @@ export default {
   name: 'practiseMainEdit',
   data() {
     return {
-      nameList1: [{ value: '' }],
+      nameList: [{ value: '',key: Date.now() }],
       items: [
         { message: 'Foo' },
         { message: 'Bar' }
       ],
-      phoneNumberList: [{ value: '18713102810' }],
+      phoneNumberList: [{ value: '18713102810', key: Date.now() }],
       personList: [
         { name: 'wang', phoneNumber: 18713102810 },
         { name: '董欢迎', phoneNumber: 15530717659 },
@@ -108,32 +115,24 @@ export default {
       });
     },
     resetForm(formName) {
-      if (formName == 'nameList1') {
-        this.nameList1 = [{ value: '' }]
+      if (formName == 'nameList') {
+        this.nameList = [{ value: '' }]
       } else if (formName == 'phoneNumberList') {
         this.phoneNumberList = [{ value: '' }]
       }
       // this.$refs[formName].resetFields();
     },
-
-    //增加手机号
-    addPhone() {
-      this.phoneNumberList.push({
-        value: '',
-        key: Date.now()
-      });
-    },
-    //增加姓名
-    addName() {
-      this.nameList1.push({
-        value: '',
-        key: Date.now()
-      });
+    changeList(formName, start, length, item = undefined) {
+      let list = formName == 'nameList' ? this.nameList : (formName == 'phoneNumberList' ? this.phoneNumberList : []);
+      if (item) {
+        list.splice(start, length, item);
+      } else {
+        list.splice(start, length);
+      }
+      // this.$refs[formName].resetFields();
     },
     xxx() {
       let b = this.personList.filter(item => item.name.match(/wang/))
-      // let a = this.items.filter(item=> item.message.match(/Foo/))
-      // console.log(a,'a')
       console.log(b, 'b')
 
     },
