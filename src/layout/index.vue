@@ -99,75 +99,9 @@ export default {
 </script>
 
 <style lang="scss">
-.extends-flag {
-    transition: padding-right 0.2s ease-in;
-    padding-right: 360px !important;
-}
-
 .main-down {
     transition: padding-right 0.2s ease-in;
     height: 100%;
     padding-top: 90px;
-    padding-right: 2px !important;
-    position: fixed;
-}
-
-.openSidebar {
-    width: calc(100vw - 56px);
-
-}
-
-.hideSidebar {
-    width: calc(100vw - 56px);
-
-}
-</style>
-<style lang="scss" scoped>
-.app-wrapper.qiankun,
-.app-wrapper.qiankun .app-main {
-    background: none !important;
-}
-
-#containerBody::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-/*正常情况下滑块的样式*/
-
-#containerBody::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
-    border-radius: 10px;
-    -webkit-box-shadow: inset 1px 1px 0 #dddddd;
-}
-
-/*鼠标悬浮在该类指向的控件上时滑块的样式*/
-
-#containerBody:hover::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
-    border-radius: 10px;
-    -webkit-box-shadow: inset 1px 1px 0 #dddddd;
-}
-
-/*鼠标悬浮在滑块上时滑块的样式*/
-
-#containerBody::-webkit-scrollbar-thumb:hover {
-    background-color: #dddddd;
-    -webkit-box-shadow: inset 1px 1px 0 #dddddd;
-}
-
-/*正常时候的主干部分*/
-
-#containerBody::-webkit-scrollbar-track {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px #dddddd;
-    background-color: white;
-}
-
-/*鼠标悬浮在滚动条上的主干部分*/
-
-#containerBody::-webkit-scrollbar-track:hover {
-    -webkit-box-shadow: inset 0 0 6px #dddddd;
-    background-color: #ffffff;
 }
 </style>
