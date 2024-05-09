@@ -77,11 +77,16 @@ const zhangxinxuWeb = [
         component: () => import("./views/zhangxinxuWeb/htmlSampElement.vue"),
         props: (route) => route.query,
       },
-
-      {
+{
         path: "overlappingPosition",
         name: "overlappingPosition",
         component: () => import("./views/zhangxinxuWeb/overlappingPosition.vue"),
+        props: (route) => route.query,
+      },
+      {
+        path: "cssAtScope",
+        name: "cssAtScope",
+        component: () => import("./views/zhangxinxuWeb/cssAtScope.vue"),
         props: (route) => route.query,
       },
       
