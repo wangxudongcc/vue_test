@@ -8,7 +8,7 @@ export default {
     name:'Test',
     data(){
         return{
-            isShow:true
+            isShow:true，
         }
     }
 }
