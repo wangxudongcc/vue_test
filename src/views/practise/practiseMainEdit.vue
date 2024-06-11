@@ -1,6 +1,7 @@
 
 <template>
   <div>
+    <test></test>
     <name-list
       :name-list="nameList"
       @resetForm=resetForm
@@ -39,11 +40,13 @@
     <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
       <el-checkbox v-for="city in cities" :label="city" :key="city">{{ city }}</el-checkbox>
     </el-checkbox-group>
+
   </div>
 </template>
 <script>
 import nameList from "./components/nameList.vue";
 import phoneList from "./components/phoneList.vue";
+import test from "./components/test.vue";
 import dataForm from "./data";
 export default {
   name: 'practiseMainEdit',
@@ -69,7 +72,8 @@ export default {
   },
   components: {
     nameList,
-    phoneList
+    phoneList,
+    test
   },
 
   created() {
