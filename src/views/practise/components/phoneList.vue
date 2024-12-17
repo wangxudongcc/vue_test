@@ -34,7 +34,6 @@ export default {
   name: "phoneList",
   data() {
     return {
-
     }
   }
 };

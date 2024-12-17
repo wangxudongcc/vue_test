@@ -88,21 +88,6 @@ const zhangxinxuWeb = [
     ],
   },
 ];
-const ruanyifeng = [
-  {
-    path: "/ruanyifeng",
-    component: Layout,
-    redirect: "/ruanyifeng/index",
-    children: [
-      {
-        path: "index",
-        name: "index",
-        component: () => import("./views/ruanyifeng/index.vue"),
-        props: (route) => route.query,
-      },
-    ],
-  },
-];
 const jsProNote = [
   {
     path: "/jsProNote",
@@ -118,7 +103,7 @@ const jsProNote = [
     ],
   },
 ];
-const a20191226 = [
+const _20191226 = [
   {
     path: "/20191226",
     component: Layout,
@@ -133,7 +118,7 @@ const a20191226 = [
     ],
   },
 ];
-const a20221026 = [
+const _20221026 = [
   {
     path: "/20221026",
     component: Layout,
@@ -151,7 +136,7 @@ const a20221026 = [
 
 const router = new VueRouter({
   mode: "history", // require service support
-  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb,...ruanyifeng,...jsProNote,...a20191226,...a20221026],
+  routes: [...element, ...practise,...jQuery,...zhangxinxuWeb,...jsProNote,..._20191226,..._20221026],
 });
 
 new Vue({

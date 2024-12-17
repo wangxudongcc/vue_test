@@ -76,13 +76,6 @@ export default {
           },
         },
         {
-          name: "ruanyifeng",
-          svg: "ryf",
-          callback: () => {
-            this.toToolDeatail("ruanyifeng");
-          },
-        },
-        {
           name: "20191226",
           icon: "el-icon-date",
           callback: () => {
@@ -118,9 +111,6 @@ export default {
       }
       if (type == "zhangxinxuWeb") {
         path = "/zhangxinxuWeb/overlappingPosition";
-      }
-      if (type == "ruanyifeng") {
-        path = "/ruanyifeng/index";
       }
       if (type == "jsProNote") {
         path = "/jsProNote/index";
