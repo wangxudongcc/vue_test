@@ -102,7 +102,7 @@ const jsProNote = [
       {
         path: "index",
         name: "index",
-        component: () => import("./views/jsProNote/index.vue"),
+        component: () => import("./views/jsProNote/all.vue"),
         props: (route) => route.query,
       },
     ],

@@ -40,8 +40,6 @@ export default {
   },
   data() {
     return {
-<<<<<<< HEAD
-=======
        
     }
   },
@@ -55,7 +53,6 @@ export default {
     },
     deletePhone(index) {
       this.$emit("changeList", "phoneNumberList", index, 1);
->>>>>>> 54d0b2a93cfb729f37a1226674fbe0f0d9c7e616
     }
   }
 };
