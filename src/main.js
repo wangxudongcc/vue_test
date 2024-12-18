@@ -3,7 +3,7 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import Layout from "@/layout";
+import Layout from "@/layout/index.vue";
 import '@/icons'
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
@@ -77,11 +77,16 @@ const zhangxinxuWeb = [
         component: () => import("./views/zhangxinxuWeb/htmlSampElement.vue"),
         props: (route) => route.query,
       },
-
-      {
+{
         path: "overlappingPosition",
         name: "overlappingPosition",
         component: () => import("./views/zhangxinxuWeb/overlappingPosition.vue"),
+        props: (route) => route.query,
+      },
+      {
+        path: "cssAtScope",
+        name: "cssAtScope",
+        component: () => import("./views/zhangxinxuWeb/cssAtScope.vue"),
         props: (route) => route.query,
       },
       
