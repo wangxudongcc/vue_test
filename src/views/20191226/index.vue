@@ -1,15 +1,20 @@
 <template>
     <div>
-        <div class="box"></div>
+        <div class="box">4564312-965</div>
+        <up-load></up-load>
     </div>
 </template>
 <script>
+import upLoad from './上传/upload.vue'
 export default {
     data() {
         return {
             url: 'https://www.asdf.cn:8080/asd/sdf/?a=aa&as=12#a=aa&b=bb&c',
             params: {}
         }
+    },
+    components: {
+        upLoad
     },
     mounted() {
         this.queryUrlParams(this.url)

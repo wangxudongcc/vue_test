@@ -1,6 +1,8 @@
 <template>
   <div style="height: 100vh; width: 100vw">
+    45612365
     <router-view />
+    653897
     <div v-if="$route.path == '/'" style="height: 100%">
       <div class="headers"></div>
       <div class="appMain">
