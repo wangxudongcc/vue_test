@@ -6,6 +6,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import Layout from "@/layout/index.vue";
 import '@/icons'
 Vue.config.productionTip = false;
+Vue.config.devtools = false; // 关闭 DevTools 集成
 Vue.use(ElementUI);
 // 路由注册全局
 Vue.use(VueRouter);
