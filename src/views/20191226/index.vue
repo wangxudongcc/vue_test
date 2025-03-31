@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div class="box">4564312-965</div>
         <up-load></up-load>
     </div>
 </template>
@@ -50,7 +49,6 @@ export default {
                 let urlLink =urlArr.length>1? urlArr[0].split(':'):paramHash[0].split(':')
                 if (urlLink.length - 1 > 1) {  //判断冒号出现了多少次  
                     this.params.Channel = urlLink[urlLink.length - 1].replace(/\/+/g, '')
-
                     this.params.link = urlLink[urlLink.length - 2].replace(/\/+/g, '');
                 } else if (urlLink.length - 1 == 1) {
                     console.log(urlLink, 'urlLink')

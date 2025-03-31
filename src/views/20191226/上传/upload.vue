@@ -1,10 +1,9 @@
 <template>
     <div>
-        注册的用户名:<input id="user" type="text" @blur="checkUser" /><span id='s'></span>
-        注册的密码:<input type='password' id='pw' />
-        <br />
-        注册的密码:<input type='password' id='pw' />
-        <button id='btn'>提交</button>
+        注册的用户名:<el-input v-model="user" placeholder="请输入内容" @blur="checkUser" clearable></el-input>
+        注册的密码::<el-input v-model="password" placeholder="请输入内容" @blur="checkPassword" clearable></el-input>
+        验证码:<el-input v-model="CAPTCHA" placeholder="请输入内容" @blur="checkCAPTCHA"></el-input>
+        <el-button type="text">提交</el-button>
         <ul id='ul'>
             <li v-for="(item, index) in list" :key="index">
                 我的名字叫:{{ item.name }},
@@ -25,6 +24,9 @@ export default {
             pw: '',
             myopt: null,
             list: [],
+            user: '',
+            password: '',
+            CAPTCHA: ''
         }
     },
     computed: {
@@ -34,72 +36,7 @@ export default {
     },
     methods: {
 
-        // ajax(url, cb, opt) {
-        //     this.myopt = opt && {
-        //         method: opt.method || 'get',
-        //         body: opt.body || '',
-        //         headers: opt.headers || {},
-        //         dataType: opt.dataType || 'json',
-        //         timeout: opt.timeout || 10000,
-        //         ontimeout: opt.ontimeout || function () { },
-        //         async: (opt.async === undefined) ? true : opt.async
-        //     }
-        //     var len = arguments.length;
-        //     var xhr = new XMLHttpRequest;
-        //     if (opt.async === true) {
-        //         xhr.timeout = myopt.timeout;
-        //     }
-        //     function ready() {
-        //         if (myopt.async === true) {
-        //             xhr.onreadystatechange = function () {
-        //                 if (xhr.readyState === 4) {
-        //                     if (/(20[0-7])|(30[14])/.test(xhr.status)) {
-        //                         if (myopt.dataType === 'json') {
-        //                             cb.success && cb.success(eval('(' + xhr.responseText + ')'))
-        //                         } else if (myopt.dataType === 'xml') {
-        //                             cb.success && cb.success(xhr.responseXML)
-        //                         }
-        //                     } else {
-        //                         cb.error && cb.error(xhr.status);
-        //                     }
-        //                 }
-        //             }
-        //         } else {
-        //             if (/(20[0-7])|(30[14])/.test(xhr.status)) {
-        //                 if (myopt.dataType === 'json') {
-        //                     cb.success && cn.success(eval('(' + xhr.responseText + ')'))
-        //                 } else if (myopt.dataType === 'xml') {
-        //                     cb.success && cb.success(xhr.responseXML)
-        //                 }
-        //             }
-        //             else {
-        //                 cb.error && cb.success(xhr.status);
-        //             }
-        //         }
-        //     }
-        //     if (len === 2) {
-        //         xhr.open('get',)
-        //     }
-        // },
         async checkUser() {
-            //     this.ajax('./data.xml', {
-            //         success(d) {
-            //             const person = d.getElementsByTagName('person');
-            //             for (let i = 0; i < person.length; i++) {
-            //                 this.list.push({
-            //                     name: person[i].children[0].innerHTML,
-            //                     age: person[i].children[1].innerHTML,
-            //                     say: person[i].children[3].innerHTML, 
-            //                 })
-            //             }
-            //             console.log(person, this.list);
-            //         }
-            //     }, {
-            //         dataType: 'xml'
-            //     })
-            // }
-
-
             getList().then(res => {
                 this.list.push(...res.data)
                 console.log(res, this.list);
@@ -111,12 +48,14 @@ export default {
                 console.log(res);
             })
         },
-
-
+        checkPassword() {
+            console.log(this.password);
+        },
+        checkCAPTCHA() {
+            console.log(this.CAPTCHA);
+        }
     },
 };
-
-
 
 </script>
 <style>

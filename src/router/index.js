@@ -87,11 +87,11 @@ const element = [
     {
       path: "/jsProNote",
       component: Layout,
-      redirect: "/jsProNote/index",
+      redirect: "/jsProNote/all",
       children: [
         {
-          path: "index",
-          name: "index",
+          path: "all",
+          name: "all",
           component: () => import("@/views/jsProNote/all.vue"),
           props: (route) => route.query,
         },
@@ -117,7 +117,7 @@ const element = [
     {
       path: "/20221026",
       component: Layout,
-      redirect: "/20221026/index",
+      redirect: "/20221026/empty",
       children: [
         {
           path: "empty",
