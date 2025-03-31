@@ -11,10 +11,10 @@
     "axios": "^1.2.1",
     "babel-preset-es2015": "^6.24.1",
     "core-js": "^3.8.3",
-    "element-ui": "^2.15.12",
+    "element-ui": "^2.15.14",
     "jquery": "^3.6.3",
     "nprogress": "^0.2.0",
-    "svg-sprite-loader": "^4.1.3",
+    "svg-sprite-loader": "^6.0.11",
     "vue": "^2.6.14",
     "vue-router": "^2.8.1"
   },
@@ -27,7 +27,7 @@
     "babel-plugin-component": "^1.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "sass": "^1.71.0",
+    "sass": "^1.32.13",
     "sass-loader": "^14.1.1",
     "vue-template-compiler": "^2.6.14"
   },

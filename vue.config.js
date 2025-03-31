@@ -4,6 +4,7 @@ module.exports = defineConfig({
   chainWebpack(config) {
     // set svg-sprite-loader
     config.module.rule("svg").exclude.add(resolve("src/icons")).end();
+    config.module.rule("js").exclude.add(/node_modules/); // 排除 node_modules
     config.module
       .rule("icons")
       .test(/\.svg$/)
