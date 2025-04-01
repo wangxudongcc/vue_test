@@ -25,7 +25,8 @@
                 </el-col> 
                 <el-col :span="8"> 
                     <el-form-item label="任务类型" prop="taskType">
-                        <el-select placeholder="请选择">
+                        {{ riskTypeOption }}
+                        <el-select v-model="riskTypeOption" placeholder="请选择">
                             <el-option v-for="item in taskTypeOption" :key="item.value" :label="item.label"
                                 :value="item.value"> <span>{{ item.label }}</span> </el-option> 
                         </el-select>
@@ -64,7 +65,8 @@ export default {
                 { label: '报案', value: 'losstype' },
                 { label: '理赔', value: 'claimtype' },
                 { label: '理赔2', value: 'claimtype2' }],
-            companycode: '001'
+            companycode: '001',
+            riskTypeOption:''
         }
     },
     mounted() {
