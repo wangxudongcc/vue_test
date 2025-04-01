@@ -195,7 +195,7 @@ export default {
         path = "/zhangxinxuWeb/overlappingPosition";
       }
       if (type == "jsProNote") {
-        path = "/jsProNote/index";
+        path = "/jsProNote/all";
       }
       if (type == "20191226") {
         path = "/20191226/index";

@@ -52,9 +52,7 @@ export default {
                     this.params.link = urlLink[urlLink.length - 2].replace(/\/+/g, '');
                 } else if (urlLink.length - 1 == 1) {
                     console.log(urlLink, 'urlLink')
-
                 }
-
             }
             console.log(this.params, 'this.params')
             return this.params

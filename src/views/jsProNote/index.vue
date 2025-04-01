@@ -1,22 +1,28 @@
 <template>
   <div>
+    88
     <div style="width: 450px;">
+      9999
       <el-input v-model="totalNum" width="20%" maxlength="12" show-word-limit>
         <template slot="prepend">请输入要转换的数字：</template>
       </el-input>
     </div>
     <span>{{ changeToChinese(totalNum) }}</span>
+   
   </div>
 </template>
 <script>
-export default {
+  
+  export default {
   name: "index",
   data() {
     return {
       totalNum: "",
     };
   },
-  components: {},
+  components: {
+     
+  },
 
   created() {},
   computed: {},

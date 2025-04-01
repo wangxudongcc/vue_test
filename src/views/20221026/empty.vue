@@ -1,33 +1,44 @@
 <template>
   <div class="box">
-  <div class="container">
-    <div class="circle"></div>
+    <div class="container">
+      <div class="circle"></div>
+      <sixsixsix></sixsixsix>
+      <internalRelations></internalRelations>
+      <callVsBind></callVsBind>
+      <form1></form1>
+    </div>
   </div>
-</div>
 </template>
+
 <script>
-// let obj = [1,2,3,4,5,6,7]
-// let objClone = [...obj,1,'pink'];
-// console.log(objClone);
-function /*隐藏的数字*/ foo() {}
-let a = [["name", "wang"], ["10"], ["age", "19", "12"], ["sex", "男"]];
-console.log(Object.fromEntries(a));
-console.log(Object.entries(a));
+import sixsixsix from './666.vue';
+import internalRelations from '@/views/20221026/internalRelations.vue';
+import callVsBind from '@/views/20221026/callVsBind.vue';
+import form1 from '@/views/20221026/form.vue';
+export default {
+  data() {
+    return {
 
-async function fetchUserPreferences() {
-  // try {
-  //   const user = await fetch("/user/preferences").catch((err) => {
-  //     // throw new Error('fail'+err.message);
-  //     const wrapErr = new Error("Fail");
-  //     wrapErr.cause = err;
-  //     throw wrapErr;
-  //   });
-  // } catch (err) {
+    }
+  },
+  components: {
+    sixsixsix,
+    internalRelations,
+    callVsBind,
+    form1
+  },
+  mounted() {
+    // let obj = [1,2,3,4,5,6,7]
+    // let objClone = [...obj,1,'pink'];
+    // console.log(objClone);
+    let a = [["name", "wang"], ["10"], ["age", "19", "12"], ["sex", "男"]];
+    console.log(Object.fromEntries(a));
+    console.log(Object.entries(a));
+  },
+  methods: {
 
-  // }
-}
-console.log(foo,fetchUserPreferences)
-</script>
+  }
+}</script>
 
 <style>
 .box {

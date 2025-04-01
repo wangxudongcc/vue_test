@@ -1,5 +1,6 @@
 <template>
-    <hr>
+    <div>
+        <hr>
     <hr class="hr-solid">
     <hr class="hr-dotted">
     <hr class="hr-dotted2">
@@ -20,6 +21,8 @@
     <hr class="hr-dashed-content" data-content="分隔线">
     <hr class="hr-mid-border-content" data-content="分割线">
     <hr class="hr-mid-border-content" data-content="分隔线">
+    </div>
+   
 </template>
 
 <style>
@@ -172,7 +175,6 @@
 
     .hr-dashed-content::before {
         border-image: repeating-linear-gradient(90deg, rgb(7, 7, 242), rgb(245, 6, 6) 1px, transparent 1px, transparent 2px)0 85% / / 0 repeat;
-
     }
 
     .hr-mid-border-content::after {
