@@ -7,14 +7,26 @@
     </div>
     <br />
     <button id="button">随机两个点</button>
+    这是：<input type="text" @click="boxInput">
   </div>
 </template>
 <script src="./A.js"></script>
 
 <script>
 export default {
+  props: {
+    title: {
+      type: String,
+
+    }
+  },
+  data() {
+    return {
+      title: '666'
+    } 
+  },
   mounted() {
-    console.log(this.$event) // 可以获取到dom元素
+    console.log(this.title,'title',this.$event) // 可以获取到dom元素
   },
   methods: {
     boxClick(){
@@ -29,6 +41,9 @@ export default {
     let id = element.id
     console.log(id)
     element = null
+    },
+    boxInput(){
+      this.$emit('sixsixsix1', '666')
     }
   }
 }
