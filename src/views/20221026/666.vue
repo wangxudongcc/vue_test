@@ -14,19 +14,18 @@
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-
-    }
-  },
+  props: ['title'],
   data() {
     return {
-      title: '666'
+      // title: '666'
     } 
   },
   mounted() {
     console.log(this.title,'title',this.$event) // 可以获取到dom元素
+    console.log(this.$listeners,'$listeners')
+    console.log(this.$attrs,'$attrs')
+    console.log(this.$slots,'$slots')
+    console.log(this.$props,'$props')
   },
   methods: {
     boxClick(){
@@ -48,7 +47,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .box {
   max-width: 360px;
   height: 150px;
