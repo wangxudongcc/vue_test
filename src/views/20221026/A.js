@@ -80,23 +80,23 @@
 
 // console.log(Object.values(describeForNameMap));
 // console.log(describeForNameMap);
-// [func...,'',,,,]
+// // [func...,'',,,,]
 
-let k1 = Symbol("k1")
-let k2 = Symbol("k2")
-let o = {
-    1:1,
-    first :"first",
-    [k1]:'sym2',
-   second:"second",
-   0:0
-}
-o[k2]="sym2"
-o[3]=3
-o.third = 'third'
-o[2]=2
-o.obje = {}
-
+// let k1 = Symbol("k1")
+// let k2 = Symbol("k2")
+// let o = {
+//     1:1,
+//     first :"first",
+//     [k1]:'sym2',
+//    second:"second",
+//    0:0
+// }
+// o[k2]="sym2"
+// o[3]=3
+// o.third = 'third'
+// o[2]=2
+// o.obje = {}
+// console.log(o,'o')
 // console.log(Object.values(o)[7] ===o.obje)
 // console.log(Object.entries(o)[7][1]===o.obje)
 // console.log(Object.getOwnPropertyDescriptor(o,'third'))
@@ -122,21 +122,21 @@ Person.prototype = {
         values:Person,
         enumerable:false
     })
-let application = function(){
-    let components = new Array()
-    components.push(new BaseComponent())
-    console.log("components",components)
-    return {
-        getComponentCount(){
-            return components.length
-        },
-        registerComponent(component){
-            if(typeof component =="object"){
-                components.push(component)
-            }
-        }
-    }
-}
+// let application = function(){
+//     let components = new Array()
+//     components.push(new BaseComponent())
+//     console.log("components",components)
+//     return {
+//         getComponentCount(){
+//             return components.length
+//         },
+//         registerComponent(component){
+//             if(typeof component =="object"){
+//                 components.push(component)
+//             }
+//         }
+//     }
+// }
 
 // console.log(Object.values(sym))
 // console.log(Object.entries(oSym))
@@ -166,11 +166,4 @@ let application = function(){
 // console.log(this)
 
 
-function assignHandler(){
-    let element = document.getElementById('someElement')
-    let id = element.id
-    element.onclick =()=>console.log(id)
-    element = null
-}
-console.log(assignHandler())
  

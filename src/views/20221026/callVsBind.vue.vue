@@ -1,8 +1,7 @@
- 
 <template>
     <div></div>
 </template>
-    <!-- <script>
+<!-- <script>
         ~function(){
             function call(context){
                 context= context||window;
@@ -23,7 +22,7 @@
         }
         fn.call(obj,10,20);
     </script> -->
-    <!-- <script>
+<!-- <script>
         Function.prototype.myCall = function(context){
             context.fn = this;
             context.fn();
@@ -38,7 +37,7 @@
         }
         fn.myCall(obj);
     </script> -->
-    <!-- <script>    
+<!-- <script>    
         !function(){
         function call (context){
             context = context || window;
@@ -60,22 +59,34 @@
         // fn(obj);
     </script> -->
 <script>
-    !function(){
-        function call(context){
-            context = context||window;
-            let args = [],result;
-            for(let i = 1;i<arguments.length;i++){
-                args.push(arguments[i]);
-            }
-            context.fn = this;
-            context.fn(...args);
-            delete context.fn;
+
+export default {
+    data() {
+        return {
+            obj: { name: 'obj' }
         }
-        Function.prototype.call = call;
-    }()
-    let obj = {name:'obj'};
-    function fn(){
-        console.log(this,这是被改变的this)
+    },
+    mounted() {
+        console.log('目前实在callVsBind.vue中')
+        // !function () {
+        //     function call(context) {
+        //         context = context || window;
+        //         let args = [];
+        //         for (let i = 1; i < arguments.length; i++) {
+        //             args.push(arguments[i]);
+        //         }
+        //         context.fn = this;
+        //         context.fn(...args);
+        //         delete context.fn;
+        //     }
+        //     Function.prototype.call = call;
+        // }();
+        // this.fn.call(this.obj);
+    },
+    methods: {
+        fn() {
+            console.log(this, '这是被改变的this')
+        }
     }
-    fn.call(obj,10,20);
+}
 </script>

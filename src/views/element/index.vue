@@ -18,6 +18,7 @@
     <br>
     <el-button class="el-icon-heavy-rain" @click="start()"></el-button>
     <el-button class="el-icon-food" @click="stop()"></el-button>
+    <el-button type="text" @click="open">点击打开 Message Box</el-button>
   </div>
 </template>
 
@@ -87,6 +88,17 @@ export default {
     // typeColor2(){
     //   return this.typeColor();
     // }
+    open() {
+        this.$alert('这是一段内容', '标题名称', {
+          confirmButtonText: '确定',
+          callback: action => {
+            this.$message({
+              type: 'info',
+              message: `action: ${ action }`
+            });
+          }
+        });
+      }
   }
 };
 </script>

@@ -1,6 +1,7 @@
 <template>
     <div>
-
+        <div>
+        </div>
     </div>
 </template>
 <!-- 刷新之后还有(数据不变的)
@@ -14,7 +15,7 @@
         localStorage
         sessionStorage
     -->
-    <!-- <script>    
+<!-- <script>    
         document.cookie = 'name=pq;';
         document.cookie = 'age=11'
         document.cookie = 'a!=null'
@@ -33,28 +34,44 @@
         }
         removeCookie('a!' )
     </script> -->
-    <script>
-    
-    let sql = [{
-        user: 'asdfg',
-        pw: '123'
-    }, {
-        user: 'asd',
-        pw: '321'
-    }]
-    let DIv1 = document.createElement('div')
-    DIv1.innerHTML="666"
-    DIv1.id="btn"
-    document.body.appendChild(DIv1);
-    btn.onclick = function () {
-        let val1 = user.value;
-        let val2 = pw.value;
-        let o = sql.find(item => item.user === val1);
-        if (o) {
-            if (o.pw === val2) {
-                alert('登陆成功');
-                document.cookie = 'user' + o.user;
+<script>
+export default {
+    data() {
+        return {
+            sql: [{
+                user: 'asdfg',
+                pw: '123'
+            }, {
+                user: 'asd',
+                pw: '321'
+            }],
+            user: '',
+            password: ''
+        }
+    },
+    components: {
+
+    },
+    mounted() {
+
+    },
+    methods: {
+        submit() {
+            let val1 = this.user
+            let val2 = this.password
+            let o = this.sql.find(item => item.user === val1);
+            if (o) {
+                if (o.pw === val2) {
+                    alert('登陆成功');
+                    document.cookie = 'user' + o.user;
+                }
             }
         }
     }
+}
+
+let DIv1 = document.createElement('div')
+DIv1.innerHTML = "666"
+DIv1.id = "btn"
+document.body.appendChild(DIv1);
 </script>
