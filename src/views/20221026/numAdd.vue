@@ -1,7 +1,7 @@
 <template>
     <div>
         <div style="display: flex;white-space: nowrap;">
-            <slot name="fuzujian" :num="number"></slot>
+            <slot :num="number"></slot>
             子组件：<el-input v-model.number="number" disabled></el-input>
         </div>
         <div class="input-line">
@@ -23,7 +23,8 @@ export default {
             input: 0,
             disabled: false,
             timer: '',
-            leijiashuzhi: 1
+            leijiashuzhi: 1,
+            xxxxxxx: null
         }
     },
     props: {
@@ -31,6 +32,23 @@ export default {
             type: Number,
             default: 0,
         },
+    },
+    mounted() {
+        console.log(this.$parent, 'this.$parent', '这是子组件的mounted生命周期')
+        console.log(this.$root, 'this.$root')
+        console.log(this.$refs, 'this.$refs')
+        console.log(this.$el, 'this.$el')
+        console.log(this.$vnode, 'this.$vnode')
+        this.$emit('asdf', '这是子组件的emit')
+        this.$on('update:num', (val) => {
+            console.log(val, 'this.$on')
+        })
+        this.$once('update:num', (val) => {
+            console.log(val, 'this.$once')
+        })
+        this.$off('update:num', (val) => {
+            console.log(val, 'this.$off')
+        })
     },
     computed: {
         number: {
@@ -45,10 +63,9 @@ export default {
     methods: {
         start() {
             clearInterval(this.timer)
-
             this.disabled = true
             this.timer = setInterval(() => {
-                this.$emit('update:num', this.num + this.leijiashuzhi);
+                this.number = this.num + this.leijiashuzhi
             }, this.input * 1000 > 1 ? this.input * 1000 : 1000); // 1000 毫秒 = 1 秒
         },
         stop() {
@@ -56,8 +73,9 @@ export default {
             clearInterval(this.timer)
         },
         reload() {
-            this.disabled = false
-            this.stop()
+            this.disabled = false,
+                this.number = this.xxxxxxx,
+                this.stop()
             clearInterval(this.timer)
         }
     }
