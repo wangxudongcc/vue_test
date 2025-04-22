@@ -2,14 +2,14 @@
     <div class="modufyQuery">
         <el-form ref="formRef" :show-message="false" :model="formData" :inline="true" label-position="right"
             label-width="120px"
-            style="background: #fff; padding: 12px 0 16px 0; margin: 0; border-top: 1px #3358ec solid">
-            <el-row type="flex">
+            style="border: 1px #3358ec solid">
+            <el-row >
                 <el-col :span="8">
                     <el-form-item label="报案号" prop="registNo">
-                        <div class="before">
-                            *
+                        <div style="display: flex; align-items: center;">
+                           <div>*</div>
+                        <el-input v-model.trim="formData.registNo" placeholder="请输入" /> 
                         </div>
-                        <el-input v-model.trim="formData.registNo" placeholder="请输入" />
                     </el-form-item>
                 </el-col>
                 <el-col :span="8"> 
@@ -33,15 +33,17 @@
                     </el-form-item> </el-col>
                
             </el-row>
-            <el-row type="flex">
-                <el-col :span="24">
-                    <el-form-item class="btns">
-                        <el-button type="primary" round @click="setFormData">
+            <el-row type="flex" style="justify-content: center;align-items: center;">
+                <el-col>
+                    <el-form-item>
+                        <div style="display: flex; gap: 10px;">
+                            <el-button type="primary" round @click="setFormData" size="small">
                             查询
                         </el-button>
-                        <el-button type="primary" round @click="showRecord">
+                        <el-button type="primary" round @click="showRecord" size="medium ">
                             批量平级移交
                         </el-button>
+                        </div>
                     </el-form-item>
                 </el-col>
             </el-row>

@@ -117,12 +117,12 @@ const element = [
     {
       path: "/20221026",
       component: Layout,
-      redirect: "/20221026/empty",
+      redirect: "/20221026/CompositeQueryPanel",
       children: [
         {
-          path: "empty",
-          name: "empty",
-          component: () => import("@/views/20221026/empty.vue"),
+          path: "CompositeQueryPanel",
+          name: "CompositeQueryPanel",
+          component: () => import("@/views/20221026/CompositeQueryPanel.vue"),
           props: (route) => route.query,
         },
       ],

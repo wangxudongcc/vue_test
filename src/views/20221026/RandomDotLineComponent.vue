@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 30px 30px" id="someElement" @click="assignHandler">
+  <div style="border: 2px solid black;" id="someElement" @click="assignHandler">
     <div id="box" class="box" @click="boxClick">
       <i class="dot1"></i>
       <span class="line"></span>
@@ -8,6 +8,7 @@
     <br />
     <button id="button">随机两个点</button>
     这是：<input type="text" @click="boxInput">
+  
   </div>
 </template>
 <script src="./A.js"></script>
@@ -15,17 +16,13 @@
 <script>
 export default {
   props: ['title'],
-  data() {
-    return {
-      // title: '666'
-    } 
-  },
   mounted() {
     console.log(this.title,'title',this.$event) // 可以获取到dom元素
     console.log(this.$listeners,'$listeners')
     console.log(this.$attrs,'$attrs')
     console.log(this.$slots,'$slots')
     console.log(this.$props,'$props')
+    this.$emit('click','这是点击子组件传递的参数')
   },
   methods: {
     boxClick(){
@@ -34,11 +31,12 @@ export default {
       box.style.setProperty("--y1", Math.round(150 * Math.random()));
       box.style.setProperty("--x2", 150 + Math.round(150 * Math.random()));
       box.style.setProperty("--y2", Math.round(150 * Math.random()));
+      this.$emit('click', this.$event)
     },
     assignHandler(){
     let element = document.getElementById('someElement')
     let id = element.id
-    console.log(id)
+    console.log(id,'assignHandlerassignHandlerassignHandler')
     element = null
     },
     boxInput(){

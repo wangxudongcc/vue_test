@@ -102,6 +102,5 @@ export default {
 .main-down {
     transition: padding-right 0.2s ease-in;
     height: 100%;
-    padding-top: 90px;
 }
 </style>

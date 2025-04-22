@@ -201,7 +201,7 @@ export default {
         path = "/20191226/index";
       }
       if (type == "20221026") {
-        path = "/20221026/empty";
+        path = "/20221026/CompositeQueryPanel";
       }
       const routeUrl = this.$router.resolve({
         path: path,

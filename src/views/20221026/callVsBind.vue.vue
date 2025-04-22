@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div style="border: 1px dashed blueviolet;">
+        <span>这是callVsBind组件</span>
+    </div>
 </template>
 <!-- <script>
         ~function(){
