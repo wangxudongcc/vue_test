@@ -246,7 +246,7 @@ body {
     float: left;
   }
 }
-::v-deep .el-button {
+.el-button {
   width: 100%;
   white-space: normal;
   text-align: left;

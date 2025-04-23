@@ -1,9 +1,9 @@
 <template>
     <div class="modufyQuery">
         <el-form ref="formRef" :show-message="false" :model="formData" :inline="true" label-position="right"
-            label-width="120px"
+            label-width="auto"
             style="border: 1px #3358ec solid">
-            <el-row >
+            <el-row>
                 <el-col :span="8">
                     <el-form-item label="报案号" prop="registNo">
                         <div style="display: flex; align-items: center;">
@@ -33,18 +33,18 @@
                     </el-form-item> </el-col>
                
             </el-row>
-            <el-row type="flex" style="justify-content: center;align-items: center;">
+            <el-row>
                 <el-col>
-                    <el-form-item>
-                        <div style="display: flex; gap: 10px;">
+                    <!-- <el-form-item> -->
+                        <div class="searchButton">
                             <el-button type="primary" round @click="setFormData" size="small">
-                            查询
-                        </el-button>
-                        <el-button type="primary" round @click="showRecord" size="medium ">
-                            批量平级移交
-                        </el-button>
+                                查询
+                            </el-button>
+                            <el-button type="primary" round @click="showRecord" size="small">
+                                批量平级移交
+                            </el-button>
                         </div>
-                    </el-form-item>
+                    <!-- </el-form-item> -->
                 </el-col>
             </el-row>
         </el-form>
@@ -87,3 +87,28 @@ export default {
     }
 }
 </script>
+<style scoped>
+
+.searchButton{
+    display: flex; gap: 10px; justify-content: center;
+}
+/* .el-button ::after{
+    content: '这是after属性';
+    background-color: #ffba10;
+    border-color: black;
+    border-style: dashed;
+}
+.el-button  ::before{
+    content: '这是before属性';
+    background-color:black;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border:1px solid #ffba10;
+} */
+.searchButton>.el-button{
+   width: 150px;
+}
+
+</style>

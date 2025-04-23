@@ -6,12 +6,12 @@
           </el-header>
           <el-main>
             <el-row>
-              <el-col :span="12"><num-add :num.sync="number" style="width: 500px;" ref="getzizujianvalue"> <template>
+              <el-col :span="8"><num-add :num.sync="number" style="" ref="getzizujianvalue"> <template>
                     父组件：<el-input :value="number" disabled></el-input>
                   </template>
                 </num-add>
               </el-col>
-              <el-col :span="6" style="border: 1px dashed yellowgreen">
+              <el-col :span="8" style="border: 1px dashed yellowgreen">
                 <RandomDotLineComponent v-if="number" :title="666" ref="sixsixsix"></RandomDotLineComponent>
                 <el-button @click="number = number ? 0 : 1">点我{{ number ? '消失' : '显示' }} </el-button>
               </el-col>
@@ -26,7 +26,6 @@
 
 <script>
 import RandomDotLineComponent from './RandomDotLineComponent.vue';
-
 import callVsBind from '@/views/20221026/callVsBind.vue';
 import ClaimQueryForm from '@/views/20221026/ClaimQueryForm.vue';
 import numAdd from '@/views/20221026/numAdd.vue';
@@ -92,16 +91,13 @@ export default {
 }
 
 .el-aside {
-  background-color: #D3DCE6;
-  color: #333;
+  background-color: #0862c7;
+  color: #d78a8a;
   text-align: center;
   line-height: 200px;
 }
 
 .el-main {
-  background-color: #E9EEF3;
-  color: #333;
-
   line-height: 160px;
 }
 
