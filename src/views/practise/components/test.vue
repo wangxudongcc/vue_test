@@ -10,22 +10,6 @@
         <!-- 使用v-bind指令，动态绑定style属性，控制透明度 -->
         <h2 :style="{ opacity }">欢迎欢迎</h2>
         <h2>h2</h2>
-        <!-- {{ change() }} -->
-        <!-- 点击div，调用add方法，增加一个列表项 -->
-        <div @click="add()">增加</div>
-        <!-- 使用v-for指令，遍历list数组，显示每个列表项的id、name和索引 -->
-        <div v-for="(item, index) in list" :key="item.asd">
-            <span>{{ item.asd }}</span>-
-            <span>{{ index }}</span>-
-            <span>{{ item.id }} </span>
-            <!-- 使用v-model指令，双向绑定输入框的值，与item.name关联 -->
-            <input type="text" v-model="item.name">
-            <!-- 点击span，调用dele方法，删除对应的列表项 -->
-            <span @click="dele(index)">删除</span>
-        </div>
-        <!-- {{ dele(123) }} -->
-        <!-- 点击span，调用destoryy方法，销毁组件 -->
-        <span @click="destoryy">点我销毁</span>
     </div>
 </template>
 <script>
@@ -64,7 +48,7 @@ export default {
 
     },
     methods: {
-        // 改变透明度
+        // 改变透明度（保留，可能在其他地方调用）
         change() {
             a = setInterval(() => {
                 console.log('this.opacity: ', this.opacity)
@@ -75,41 +59,6 @@ export default {
                 clearInterval(a);
             }, 16)
             console.log(3, a)
-        },
-        // 删除列表项
-        dele(i) {
-            this.list.splice(i, 1);
-            // let list = this.list;
-            // this.list = [];
-            // this.$nextTick(() => {
-            //     this.list = list;
-            // });
-            // console.log(Math.random(), i)
-        },
-        // 增加列表项
-        add() {
-            this.list.push({
-                id: this.list.length + 1,
-                name: '',
-                asd: Math.random().toString(36).substr(2, 9),
-            });
-        },
-        // 生成随机数
-        randomSame(i) {
-            let n1 = Math.random().toString(36).substr(2, 9),
-                n2 = Math.random().toString(36).substr(2, 9);
-            // while (true) {
-            if (n1 == n2) {
-                console.log(n1, i);
-            } else {
-                this.randomSame(i + 1);
-            }
-            // }
-        },
-        // 销毁组件
-        destoryy() {
-            console.log('bye')
-            this.$destroy()
         }
     },
     // 在创建组件之前调用

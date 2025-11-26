@@ -1,28 +1,24 @@
 <template>
-  <div>
-    <el-form ref="nameList" label-width="80px" class="demo-dynamic"
-      style="border-bottom:1px solid black;margin:50px auto;width:80%">
-      <el-row v-for="(item, index) in nameList" :key="index">
-        <el-col :span="6">
-          <el-form-item label="姓名">
+  <div class="name-list-compact">
+    <el-form ref="nameList" label-width="60px" class="demo-dynamic" style="margin: 0; padding: 0; width: 100%;">
+      <!-- 姓名输入行 -->
+      <el-row v-for="(item, index) in nameList" :key="index" style="margin-bottom: 5px;">
+        <el-col :span="18">
+          <el-form-item style="margin-bottom: 0; margin-left: 60px;">
             <el-input v-model="item.value"></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="6">&nbsp;</el-col>
-        <el-col :span="6">&nbsp;</el-col>
-        <el-col :span="4">&nbsp;</el-col>
-        <el-col :span="2">
+        <el-col :span="6" style="text-align: right;">
           <el-button type="text" @click="deleteName(index)">删除</el-button>
         </el-col>
       </el-row>
-      <el-form-item>
-        <el-col :span="6">&nbsp;</el-col>
-        <el-col :span="6">&nbsp;</el-col>
-        <el-col :span="6">&nbsp;</el-col>
-        <el-col :span="6"><el-button @click="addName">新增姓名</el-button>
+      <!-- 操作按钮行 -->
+      <el-row style="margin-top: 5px;">
+        <el-col :span="24" style="text-align: right;">
+          <el-button @click="addName">新增姓名</el-button>
           <el-button @click="$emit('resetForm','nameList')">重置</el-button>
         </el-col>
-      </el-form-item>
+      </el-row>
     </el-form>
   </div>
 </template>
